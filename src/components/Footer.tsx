@@ -37,8 +37,8 @@ export interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({
-  logo,
-  logoText = "Linear",
+  // logo,
+  logoText = "Kgency",
   description = "The issue tracking tool your team will actually love to use.",
   sections = [],
   socialLinks = [],
@@ -160,7 +160,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Logo and Description */}
           <div style={logoSectionStyle}>
             <div style={logoStyle}>
-              {logo}
+              {/*{logo}*/}
               <span>{logoText}</span>
             </div>
             <p style={descriptionStyle}>
