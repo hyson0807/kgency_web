@@ -23,7 +23,8 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   };
 
   const currentTheme = useMemo(() => {
-    return mode === 'light' ? theme : {
+    // Since mode is always 'dark', directly return the dark theme
+    return {
       ...theme,
       colors: {
         ...theme.colors,
@@ -31,8 +32,8 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
         text: darkTheme.colors.text,
         border: darkTheme.colors.border,
       }
-    };
-  }, [mode]);
+    } as unknown as typeof theme;
+  }, []);
 
   // Apply theme to body
   useEffect(() => {
@@ -47,6 +48,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (context === undefined) {

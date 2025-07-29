@@ -16,28 +16,6 @@ export const KgencyHeroExample: React.FC = () => {
     { icon: '🔒', text: '안전한 개인정보 보호' }
   ];
 
-  const realTimeNotifications = [
-    {
-      id: '1',
-      message: '방금 전 김민수님이 베트남 개발자와 매칭에 성공했습니다!',
-      type: 'success' as const
-    },
-    {
-      id: '2', 
-      message: 'Sarah Johnson님이 한국 IT 기업에 지원했습니다.',
-      type: 'info' as const
-    },
-    {
-      id: '3',
-      message: '태국 마케터 3명이 새로 가입했습니다.',
-      type: 'info' as const
-    },
-    {
-      id: '4',
-      message: '삼성전자에서 외국인 개발자 5명을 모집 중입니다.',
-      type: 'success' as const
-    }
-  ];
 
   return (
     <div>
@@ -77,7 +55,6 @@ export const KgencyHeroExample: React.FC = () => {
         }}
         variant="interactive"
         size="lg"
-        notifications={realTimeNotifications}
         features={[
           { icon: '🔥', text: '실시간 매칭' },
           { icon: '💼', text: '즉시 면접 확정' },
