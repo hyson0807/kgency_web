@@ -11,7 +11,6 @@ import {
   Hero,
   FeatureCard,
   Card,
-  CustomerTestimonials,
   TeamCard,
   AppStoreCard,
   Button,
@@ -63,7 +62,7 @@ export const HomePage: React.FC = () => {
           { label: '서비스 소개', href: '#about' },
           { label: '기업 서비스', href: '#companies' },
           { label: '구직자 서비스', href: '#jobseekers' },
-          { label: '성공사례', href: '#success-stories' },
+          { label: '고객 리뷰', href: '#reviews' },
           { label: '고객지원', href: '#support' }
         ]}
         actions={
@@ -386,12 +385,6 @@ export const HomePage: React.FC = () => {
                   variant="minimal"
                 />
               </Grid>
-              
-              <div style={{ marginTop: currentTheme.spacing[8] }}>
-                <Button variant="primary" size="lg">
-                  기업 서비스 자세히 보기
-                </Button>
-              </div>
             </div>
             
             <div style={{
@@ -400,23 +393,21 @@ export const HomePage: React.FC = () => {
               justifyContent: 'center',
               backgroundColor: currentTheme.colors.surfaces.elevated,
               borderRadius: currentTheme.borderRadius.lg,
-              padding: currentTheme.spacing[12],
-              minHeight: '400px'
+              padding: currentTheme.spacing[8],
+              minHeight: '400px',
+              overflow: 'hidden'
             }}>
-              <div style={{
-                fontSize: '4rem',
-                textAlign: 'center',
-                color: currentTheme.colors.text.accent
-              }}>
-                🏢
-                <div style={{
-                  fontSize: currentTheme.typography.fontSize.lg,
-                  marginTop: currentTheme.spacing[4],
-                  color: currentTheme.colors.text.secondary
-                }}>
-                  기업 서비스 이미지
-                </div>
-              </div>
+              <img 
+                src={webHomeImage} 
+                alt="기업 서비스 - 글로벌 인재 매칭"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: currentTheme.borderRadius.md,
+                  filter: 'brightness(0.9) contrast(1.1)'
+                }}
+              />
             </div>
           </Grid>
         </Container>
@@ -432,23 +423,21 @@ export const HomePage: React.FC = () => {
               justifyContent: 'center',
               backgroundColor: currentTheme.colors.surfaces.elevated,
               borderRadius: currentTheme.borderRadius.lg,
-              padding: currentTheme.spacing[12],
-              minHeight: '400px'
+              padding: currentTheme.spacing[8],
+              minHeight: '400px',
+              overflow: 'hidden'
             }}>
-              <div style={{
-                fontSize: '4rem',
-                textAlign: 'center',
-                color: currentTheme.colors.semantic.success
-              }}>
-                👥
-                <div style={{
-                  fontSize: currentTheme.typography.fontSize.lg,
-                  marginTop: currentTheme.spacing[4],
-                  color: currentTheme.colors.text.secondary
-                }}>
-                  구직자 서비스 이미지
-                </div>
-              </div>
+              <img 
+                src={webHomeImage} 
+                alt="구직자 서비스 - 한국 취업 기회"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: currentTheme.borderRadius.md,
+                  filter: 'brightness(0.95) contrast(1.05)'
+                }}
+              />
             </div>
             
             <div>
@@ -482,12 +471,7 @@ export const HomePage: React.FC = () => {
                   variant="minimal"
                 />
               </Grid>
-              
-              <div style={{ marginTop: currentTheme.spacing[8] }}>
-                <Button variant="secondary" size="lg">
-                  구직자 서비스 자세히 보기
-                </Button>
-              </div>
+
             </div>
           </Grid>
         </Container>
@@ -528,9 +512,9 @@ export const HomePage: React.FC = () => {
               <div style={{ 
                 fontSize: '3rem', 
                 marginBottom: currentTheme.spacing[4],
-                color: currentTheme.colors.text.accent
+                color: currentTheme.colors.primary[500]
               }}>
-                📝
+                ✍️
               </div>
               <h3 style={{
                 fontSize: currentTheme.typography.fontSize.lg,
@@ -553,9 +537,9 @@ export const HomePage: React.FC = () => {
               <div style={{ 
                 fontSize: '3rem', 
                 marginBottom: currentTheme.spacing[4],
-                color: currentTheme.colors.text.accent
+                color: currentTheme.colors.primary[500]
               }}>
-                🎯
+                🔍
               </div>
               <h3 style={{
                 fontSize: currentTheme.typography.fontSize.lg,
@@ -578,9 +562,9 @@ export const HomePage: React.FC = () => {
               <div style={{ 
                 fontSize: '3rem', 
                 marginBottom: currentTheme.spacing[4],
-                color: currentTheme.colors.text.accent
+                color: currentTheme.colors.primary[500]
               }}>
-                💼
+                🤝
               </div>
               <h3 style={{
                 fontSize: currentTheme.typography.fontSize.lg,
@@ -598,55 +582,370 @@ export const HomePage: React.FC = () => {
         </Container>
       </Section>
 
-      {/* 성공 사례 섹션 */}
-      <Section spacing="xl" id="success-stories">
+      {/* 고객 리뷰 섹션 */}
+      <Section spacing="xl" id="reviews" style={{ backgroundColor: currentTheme.colors.surfaces.background }}>
         <Container maxWidth="xl">
-          <CustomerTestimonials
-            testimonials={[
-              {
-                content: "Kgency 덕분에 짧은 시간에 원하는 인재를 찾았습니다. 양방향 매칭 시스템이 정말 효과적이었어요.",
-                author: {
-                  name: "김현수",
-                  role: "HR 팀장",
-                  company: "테크기업 A"
-                },
-                rating: 5
-              },
-              {
-                content: "복잡한 과정 없이 한국에서 꿈을 이룰 수 있었어요. Kgency는 정말 혁신적인 플랫폼입니다.",
-                author: {
-                  name: "Sarah Johnson",
-                  role: "소프트웨어 개발자",
-                  company: "핀란드 → 한국 취업 성공"
-                },
-                rating: 5
-              },
-              {
-                content: "전문적이고 빠른 매칭 서비스로 글로벌 인재를 효율적으로 채용할 수 있었습니다.",
-                author: {
-                  name: "박지영",
-                  role: "경영지원팀 이사",
-                  company: "제조기업 B"
-                },
-                rating: 5
-              },
-              {
-                content: "비자 준비부터 정착까지 원스톱 서비스로 안전하게 한국에서 커리어를 시작했습니다.",
-                author: {
-                  name: "Nguyen Van An",
-                  role: "기계 엔지니어",
-                  company: "베트남 → 한국 취업 성공"
-                },
-                rating: 5
-              }
-            ]}
-            stats={[
-              { value: "14일", label: "평균 채용 기간" },
-              { value: "95%", label: "사용자 만족도" },
-              { value: "87%", label: "초기 정착률" }
-            ]}
-            variant="carousel"
-          />
+          <div style={{ 
+            textAlign: 'center', 
+            marginBottom: currentTheme.spacing[16]
+          }}>
+            <h2 style={{
+              fontSize: currentTheme.typography.fontSize['3xl'],
+              fontWeight: currentTheme.typography.fontWeight.bold,
+              marginBottom: currentTheme.spacing[4],
+              color: currentTheme.colors.text.primary
+            }}>
+              고객 리뷰
+            </h2>
+            <p style={{
+              fontSize: currentTheme.typography.fontSize.lg,
+              color: currentTheme.colors.text.secondary
+            }}>
+              Kgency와 함께한 고객들의 실제 경험담을 들어보세요
+            </p>
+          </div>
+          
+          {/* 통계 섹션 */}
+          <div style={{ 
+            marginBottom: currentTheme.spacing[16]
+          }}>
+            <Grid columns={3} gap="8">
+              <div style={{ 
+                textAlign: 'center',
+                padding: currentTheme.spacing[6],
+                backgroundColor: currentTheme.colors.surfaces.elevated,
+                borderRadius: currentTheme.borderRadius.lg
+              }}>
+                <div style={{ 
+                  fontSize: currentTheme.typography.fontSize['3xl'], 
+                  fontWeight: currentTheme.typography.fontWeight.bold,
+                  color: currentTheme.colors.primary[600],
+                  marginBottom: currentTheme.spacing[2]
+                }}>
+                  14일
+                </div>
+                <div style={{ 
+                  fontSize: currentTheme.typography.fontSize.sm, 
+                  color: currentTheme.colors.text.secondary
+                }}>
+                  평균 채용 기간
+                </div>
+              </div>
+              <div style={{ 
+                textAlign: 'center',
+                padding: currentTheme.spacing[6],
+                backgroundColor: currentTheme.colors.surfaces.elevated,
+                borderRadius: currentTheme.borderRadius.lg
+              }}>
+                <div style={{ 
+                  fontSize: currentTheme.typography.fontSize['3xl'], 
+                  fontWeight: currentTheme.typography.fontWeight.bold,
+                  color: currentTheme.colors.semantic.success,
+                  marginBottom: currentTheme.spacing[2]
+                }}>
+                  95%
+                </div>
+                <div style={{ 
+                  fontSize: currentTheme.typography.fontSize.sm, 
+                  color: currentTheme.colors.text.secondary
+                }}>
+                  사용자 만족도
+                </div>
+              </div>
+              <div style={{ 
+                textAlign: 'center',
+                padding: currentTheme.spacing[6],
+                backgroundColor: currentTheme.colors.surfaces.elevated,
+                borderRadius: currentTheme.borderRadius.lg
+              }}>
+                <div style={{ 
+                  fontSize: currentTheme.typography.fontSize['3xl'], 
+                  fontWeight: currentTheme.typography.fontWeight.bold,
+                  color: currentTheme.colors.text.accent,
+                  marginBottom: currentTheme.spacing[2]
+                }}>
+                  87%
+                </div>
+                <div style={{ 
+                  fontSize: currentTheme.typography.fontSize.sm, 
+                  color: currentTheme.colors.text.secondary
+                }}>
+                  초기 정착률
+                </div>
+              </div>
+            </Grid>
+          </div>
+          
+          {/* 리뷰 카드들 */}
+          <Grid columns={2} gap="8">
+            <Card style={{ 
+              padding: currentTheme.spacing[8],
+              backgroundColor: currentTheme.colors.surfaces.elevated,
+              borderRadius: currentTheme.borderRadius.lg
+            }}>
+              <div style={{ marginBottom: currentTheme.spacing[4] }}>
+                <div style={{ 
+                  display: 'flex', 
+                  gap: currentTheme.spacing[1], 
+                  marginBottom: currentTheme.spacing[3]
+                }}>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <span key={i} style={{ 
+                      color: currentTheme.colors.primary[500], 
+                      fontSize: currentTheme.typography.fontSize.lg 
+                    }}>
+                      ⭐
+                    </span>
+                  ))}
+                </div>
+                <p style={{
+                  fontSize: currentTheme.typography.fontSize.base,
+                  color: currentTheme.colors.text.primary,
+                  lineHeight: 1.6,
+                  marginBottom: currentTheme.spacing[4]
+                }}>
+                  "Kgency 덕분에 짧은 시간에 원하는 인재를 찾았습니다. 양방향 매칭 시스템이 정말 효과적이었어요."
+                </p>
+              </div>
+              <div style={{ 
+                display: 'flex',
+                alignItems: 'center',
+                gap: currentTheme.spacing[3]
+              }}>
+                <div style={{
+                  width: 48,
+                  height: 48,
+                  borderRadius: '50%',
+                  backgroundColor: currentTheme.colors.primary[100],
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: currentTheme.typography.fontSize.lg,
+                  fontWeight: currentTheme.typography.fontWeight.semibold,
+                  color: currentTheme.colors.primary[600]
+                }}>
+                  김
+                </div>
+                <div>
+                  <div style={{
+                    fontSize: currentTheme.typography.fontSize.base,
+                    fontWeight: currentTheme.typography.fontWeight.semibold,
+                    color: currentTheme.colors.text.primary,
+                    marginBottom: currentTheme.spacing[1]
+                  }}>
+                    김현수
+                  </div>
+                  <div style={{
+                    fontSize: currentTheme.typography.fontSize.sm,
+                    color: currentTheme.colors.text.secondary
+                  }}>
+                    HR 팀장 • 테크기업 A
+                  </div>
+                </div>
+              </div>
+            </Card>
+            
+            <Card style={{ 
+              padding: currentTheme.spacing[8],
+              backgroundColor: currentTheme.colors.surfaces.elevated,
+              borderRadius: currentTheme.borderRadius.lg
+            }}>
+              <div style={{ marginBottom: currentTheme.spacing[4] }}>
+                <div style={{ 
+                  display: 'flex', 
+                  gap: currentTheme.spacing[1], 
+                  marginBottom: currentTheme.spacing[3]
+                }}>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <span key={i} style={{ 
+                      color: currentTheme.colors.primary[500], 
+                      fontSize: currentTheme.typography.fontSize.lg 
+                    }}>
+                      ⭐
+                    </span>
+                  ))}
+                </div>
+                <p style={{
+                  fontSize: currentTheme.typography.fontSize.base,
+                  color: currentTheme.colors.text.primary,
+                  lineHeight: 1.6,
+                  marginBottom: currentTheme.spacing[4]
+                }}>
+                  "복잡한 과정 없이 한국에서 꿈을 이룰 수 있었어요. Kgency는 정말 혁신적인 플랫폼입니다."
+                </p>
+              </div>
+              <div style={{ 
+                display: 'flex',
+                alignItems: 'center',
+                gap: currentTheme.spacing[3]
+              }}>
+                <div style={{
+                  width: 48,
+                  height: 48,
+                  borderRadius: '50%',
+                  backgroundColor: currentTheme.colors.semantic.success + '20',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: currentTheme.typography.fontSize.lg,
+                  fontWeight: currentTheme.typography.fontWeight.semibold,
+                  color: currentTheme.colors.semantic.success
+                }}>
+                  S
+                </div>
+                <div>
+                  <div style={{
+                    fontSize: currentTheme.typography.fontSize.base,
+                    fontWeight: currentTheme.typography.fontWeight.semibold,
+                    color: currentTheme.colors.text.primary,
+                    marginBottom: currentTheme.spacing[1]
+                  }}>
+                    Sarah Johnson
+                  </div>
+                  <div style={{
+                    fontSize: currentTheme.typography.fontSize.sm,
+                    color: currentTheme.colors.text.secondary
+                  }}>
+                    소프트웨어 개발자 • 핀란드 → 한국 취업 성공
+                  </div>
+                </div>
+              </div>
+            </Card>
+            
+            <Card style={{ 
+              padding: currentTheme.spacing[8],
+              backgroundColor: currentTheme.colors.surfaces.elevated,
+              borderRadius: currentTheme.borderRadius.lg
+            }}>
+              <div style={{ marginBottom: currentTheme.spacing[4] }}>
+                <div style={{ 
+                  display: 'flex', 
+                  gap: currentTheme.spacing[1], 
+                  marginBottom: currentTheme.spacing[3]
+                }}>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <span key={i} style={{ 
+                      color: currentTheme.colors.primary[500], 
+                      fontSize: currentTheme.typography.fontSize.lg 
+                    }}>
+                      ⭐
+                    </span>
+                  ))}
+                </div>
+                <p style={{
+                  fontSize: currentTheme.typography.fontSize.base,
+                  color: currentTheme.colors.text.primary,
+                  lineHeight: 1.6,
+                  marginBottom: currentTheme.spacing[4]
+                }}>
+                  "전문적이고 빠른 매칭 서비스로 글로벌 인재를 효율적으로 채용할 수 있었습니다."
+                </p>
+              </div>
+              <div style={{ 
+                display: 'flex',
+                alignItems: 'center',
+                gap: currentTheme.spacing[3]
+              }}>
+                <div style={{
+                  width: 48,
+                  height: 48,
+                  borderRadius: '50%',
+                  backgroundColor: currentTheme.colors.text.accent + '20',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: currentTheme.typography.fontSize.lg,
+                  fontWeight: currentTheme.typography.fontWeight.semibold,
+                  color: currentTheme.colors.text.accent
+                }}>
+                  박
+                </div>
+                <div>
+                  <div style={{
+                    fontSize: currentTheme.typography.fontSize.base,
+                    fontWeight: currentTheme.typography.fontWeight.semibold,
+                    color: currentTheme.colors.text.primary,
+                    marginBottom: currentTheme.spacing[1]
+                  }}>
+                    박지영
+                  </div>
+                  <div style={{
+                    fontSize: currentTheme.typography.fontSize.sm,
+                    color: currentTheme.colors.text.secondary
+                  }}>
+                    경영지원팀 이사 • 제조기업 B
+                  </div>
+                </div>
+              </div>
+            </Card>
+            
+            <Card style={{ 
+              padding: currentTheme.spacing[8],
+              backgroundColor: currentTheme.colors.surfaces.elevated,
+              borderRadius: currentTheme.borderRadius.lg
+            }}>
+              <div style={{ marginBottom: currentTheme.spacing[4] }}>
+                <div style={{ 
+                  display: 'flex', 
+                  gap: currentTheme.spacing[1], 
+                  marginBottom: currentTheme.spacing[3]
+                }}>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <span key={i} style={{ 
+                      color: currentTheme.colors.primary[500], 
+                      fontSize: currentTheme.typography.fontSize.lg 
+                    }}>
+                      ⭐
+                    </span>
+                  ))}
+                </div>
+                <p style={{
+                  fontSize: currentTheme.typography.fontSize.base,
+                  color: currentTheme.colors.text.primary,
+                  lineHeight: 1.6,
+                  marginBottom: currentTheme.spacing[4]
+                }}>
+                  "비자 준비부터 정착까지 원스톱 서비스로 안전하게 한국에서 커리어를 시작했습니다."
+                </p>
+              </div>
+              <div style={{ 
+                display: 'flex',
+                alignItems: 'center',
+                gap: currentTheme.spacing[3]
+              }}>
+                <div style={{
+                  width: 48,
+                  height: 48,
+                  borderRadius: '50%',
+                  backgroundColor: currentTheme.colors.primary[100],
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: currentTheme.typography.fontSize.lg,
+                  fontWeight: currentTheme.typography.fontWeight.semibold,
+                  color: currentTheme.colors.primary[600]
+                }}>
+                  N
+                </div>
+                <div>
+                  <div style={{
+                    fontSize: currentTheme.typography.fontSize.base,
+                    fontWeight: currentTheme.typography.fontWeight.semibold,
+                    color: currentTheme.colors.text.primary,
+                    marginBottom: currentTheme.spacing[1]
+                  }}>
+                    Nguyen Van An
+                  </div>
+                  <div style={{
+                    fontSize: currentTheme.typography.fontSize.sm,
+                    color: currentTheme.colors.text.secondary
+                  }}>
+                    기계 엔지니어 • 베트남 → 한국 취업 성공
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </Grid>
         </Container>
       </Section>
 
@@ -822,55 +1121,7 @@ export const HomePage: React.FC = () => {
             </Grid>
           </div>
 
-          {/* 다운로드 버튼 형태 */}
-          <div style={{ 
-            textAlign: 'center',
-            marginBottom: currentTheme.spacing[8]
-          }}>
-            <h3 style={{
-              fontSize: currentTheme.typography.fontSize.xl,
-              fontWeight: currentTheme.typography.fontWeight.semibold,
-              marginBottom: currentTheme.spacing[6],
-              color: currentTheme.colors.text.primary
-            }}>
-              지금 바로 다운로드
-            </h3>
-            
-            <div style={{ 
-              display: 'flex', 
-              gap: currentTheme.spacing[4], 
-              justifyContent: 'center',
-              flexWrap: 'wrap',
-              alignItems: 'center'
-            }}>
-              <AppStoreCard
-                platform="ios"
-                appName="Kgency"
-                appIcon={kgencyLogo}
-                downloadUrl="https://apps.apple.com/kgency"
-                variant="button"
-                size="lg"
-              />
-              
-              <AppStoreCard
-                platform="android"
-                appName="Kgency"
-                appIcon={kgencyLogo}
-                downloadUrl="https://play.google.com/store/apps/kgency"
-                variant="button"
-                size="lg"
-              />
-              
-              <AppStoreCard
-                platform="web"
-                appName="Kgency Web"
-                appIcon={kgencyLogo}
-                downloadUrl="https://app.kgency.com"
-                variant="button"
-                size="lg"
-              />
-            </div>
-          </div>
+
 
           {/* 앱 주요 기능 */}
           <div style={{ 
