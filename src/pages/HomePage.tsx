@@ -15,7 +15,8 @@ import {
   Button,
   ContactForm,
   Footer,
-  Badge
+  Badge,
+  FadeInElement
 } from '../components';
 import { useTheme } from '../theme/ThemeProvider';
 
@@ -266,24 +267,30 @@ export const HomePage: React.FC = () => {
             {/* Key Features */}
             <div style={{ marginTop: currentTheme.spacing[8] }}>
               <Grid columns={getColumns(1, 1, 3)} gap="6">
-                <FeatureCard
-                  icon="01"
-                  title="글로벌 네트워크"
-                  description="12개국 우수 인재 풀에 직접 접근하여 최적의 매칭을 제공합니다."
-                  variant="minimal"
-                />
-                <FeatureCard
-                  icon="02"
-                  title="실시간 연결"
-                  description="AI 기반 매칭 시스템으로 즉시 최적의 인재와 기업을 연결합니다."
-                  variant="minimal"
-                />
-                <FeatureCard
-                  icon="03"
-                  title="양방향 매칭"
-                  description="기업과 인재가 상호 관심을 표현하면 바로 면접이 성사됩니다."
-                  variant="minimal"
-                />
+                <FadeInElement delay={0.2} direction="up">
+                  <FeatureCard
+                    icon="01"
+                    title="글로벌 네트워크"
+                    description="12개국 우수 인재 풀에 직접 접근하여 최적의 매칭을 제공합니다."
+                    variant="minimal"
+                  />
+                </FadeInElement>
+                <FadeInElement delay={0.4} direction="up">
+                  <FeatureCard
+                    icon="02"
+                    title="실시간 연결"
+                    description="AI 기반 매칭 시스템으로 즉시 최적의 인재와 기업을 연결합니다."
+                    variant="minimal"
+                  />
+                </FadeInElement>
+                <FadeInElement delay={0.6} direction="up">
+                  <FeatureCard
+                    icon="03"
+                    title="양방향 매칭"
+                    description="기업과 인재가 상호 관심을 표현하면 바로 면접이 성사됩니다."
+                    variant="minimal"
+                  />
+                </FadeInElement>
               </Grid>
             </div>
           </Card>
@@ -308,26 +315,32 @@ export const HomePage: React.FC = () => {
                 기업을 위한 서비스
               </h2>
               <Grid columns={1} gap="6">
-                <FeatureCard
-                  icon="🌐"
-                  title="글로벌 인재 풀 접근"
-                  description="전 세계 12개국 이상의 검증된 우수 외국인 인재"
-                  variant="minimal"
-                />
+                <FadeInElement delay={0.2} direction="left">
+                  <FeatureCard
+                    icon="🌐"
+                    title="글로벌 인재 풀 접근"
+                    description="전 세계 12개국 이상의 검증된 우수 외국인 인재"
+                    variant="minimal"
+                  />
+                </FadeInElement>
                 
-                <FeatureCard
-                  icon="⚡"
-                  title="효율적인 채용 프로세스"
-                  description="기존 대비 최대 50% 시간 단축, 유의미한 면접만 진행"
-                  variant="minimal"
-                />
+                <FadeInElement delay={0.4} direction="left">
+                  <FeatureCard
+                    icon="⚡"
+                    title="효율적인 채용 프로세스"
+                    description="기존 대비 최대 50% 시간 단축, 유의미한 면접만 진행"
+                    variant="minimal"
+                  />
+                </FadeInElement>
                 
-                <FeatureCard
-                  icon="📊"
-                  title="데이터 기반 의사결정"
-                  description="인재 프로필, 스킬 매칭률, 이전 매칭 기록 등 상세 데이터"
-                  variant="minimal"
-                />
+                <FadeInElement delay={0.6} direction="left">
+                  <FeatureCard
+                    icon="📊"
+                    title="데이터 기반 의사결정"
+                    description="인재 프로필, 스킬 매칭률, 이전 매칭 기록 등 상세 데이터"
+                    variant="minimal"
+                  />
+                </FadeInElement>
               </Grid>
             </div>
             
@@ -394,26 +407,32 @@ export const HomePage: React.FC = () => {
                 구직자를 위한 서비스
               </h2>
               <Grid columns={1} gap="6">
-                <FeatureCard
-                  icon="🏢"
-                  title="한국 취업 기회"
-                  description="검증된 한국 기업과의 직접 매칭 기회"
-                  variant="minimal"
-                />
+                <FadeInElement delay={0.2} direction="right">
+                  <FeatureCard
+                    icon="🏢"
+                    title="한국 취업 기회"
+                    description="검증된 한국 기업과의 직접 매칭 기회"
+                    variant="minimal"
+                  />
+                </FadeInElement>
                 
-                <FeatureCard
-                  icon="🚀"
-                  title="간편한 지원 프로세스"
-                  description="원클릭 지원과 동시에 즉시 피드백"
-                  variant="minimal"
-                />
+                <FadeInElement delay={0.4} direction="right">
+                  <FeatureCard
+                    icon="🚀"
+                    title="간편한 지원 프로세스"
+                    description="원클릭 지원과 동시에 즉시 피드백"
+                    variant="minimal"
+                  />
+                </FadeInElement>
                 
-                <FeatureCard
-                  icon="🎓"
-                  title="취업 지원 서비스"
-                  description="이력서 최적화, 면접 코칭, 정착 지원 정보"
-                  variant="minimal"
-                />
+                <FadeInElement delay={0.6} direction="right">
+                  <FeatureCard
+                    icon="🎓"
+                    title="취업 지원 서비스"
+                    description="이력서 최적화, 면접 코칭, 정착 지원 정보"
+                    variant="minimal"
+                  />
+                </FadeInElement>
               </Grid>
 
             </div>
@@ -448,80 +467,86 @@ export const HomePage: React.FC = () => {
           </div>
           
           <Grid columns={getColumns(1, 1, 3)} gap="8">
-            <Card style={{ 
-              textAlign: 'center', 
-              padding: currentTheme.spacing[8],
-              backgroundColor: currentTheme.colors.surfaces.background
-            }}>
-              <div style={{ 
-                fontSize: '3rem', 
-                marginBottom: currentTheme.spacing[4],
-                color: currentTheme.colors.primary[500]
+            <FadeInElement delay={0.2} direction="up">
+              <Card style={{ 
+                textAlign: 'center', 
+                padding: currentTheme.spacing[8],
+                backgroundColor: currentTheme.colors.surfaces.background
               }}>
-                ✍️
-              </div>
-              <h3 style={{
-                fontSize: currentTheme.typography.fontSize.lg,
-                fontWeight: currentTheme.typography.fontWeight.semibold,
-                marginBottom: currentTheme.spacing[2],
-                color: currentTheme.colors.text.primary
-              }}>
-                1. 프로필 등록
-              </h3>
-              <p style={{ color: currentTheme.colors.text.secondary }}>
-                기업은 채용 포지션, 구직자는 이력서/경력 정보 입력
-              </p>
-            </Card>
+                <div style={{ 
+                  fontSize: '3rem', 
+                  marginBottom: currentTheme.spacing[4],
+                  color: currentTheme.colors.primary[500]
+                }}>
+                  ✍️
+                </div>
+                <h3 style={{
+                  fontSize: currentTheme.typography.fontSize.lg,
+                  fontWeight: currentTheme.typography.fontWeight.semibold,
+                  marginBottom: currentTheme.spacing[2],
+                  color: currentTheme.colors.text.primary
+                }}>
+                  1. 프로필 등록
+                </h3>
+                <p style={{ color: currentTheme.colors.text.secondary }}>
+                  기업은 채용 포지션, 구직자는 이력서/경력 정보 입력
+                </p>
+              </Card>
+            </FadeInElement>
             
-            <Card style={{ 
-              textAlign: 'center', 
-              padding: currentTheme.spacing[8],
-              backgroundColor: currentTheme.colors.surfaces.background
-            }}>
-              <div style={{ 
-                fontSize: '3rem', 
-                marginBottom: currentTheme.spacing[4],
-                color: currentTheme.colors.primary[500]
+            <FadeInElement delay={0.4} direction="up">
+              <Card style={{ 
+                textAlign: 'center', 
+                padding: currentTheme.spacing[8],
+                backgroundColor: currentTheme.colors.surfaces.background
               }}>
-                🔍
-              </div>
-              <h3 style={{
-                fontSize: currentTheme.typography.fontSize.lg,
-                fontWeight: currentTheme.typography.fontWeight.semibold,
-                marginBottom: currentTheme.spacing[2],
-                color: currentTheme.colors.text.primary
-              }}>
-                2. 스마트 매칭
-              </h3>
-              <p style={{ color: currentTheme.colors.text.secondary }}>
-                정교한 알고리즘이 상호 프로필 분석 및 추천
-              </p>
-            </Card>
+                <div style={{ 
+                  fontSize: '3rem', 
+                  marginBottom: currentTheme.spacing[4],
+                  color: currentTheme.colors.primary[500]
+                }}>
+                  🔍
+                </div>
+                <h3 style={{
+                  fontSize: currentTheme.typography.fontSize.lg,
+                  fontWeight: currentTheme.typography.fontWeight.semibold,
+                  marginBottom: currentTheme.spacing[2],
+                  color: currentTheme.colors.text.primary
+                }}>
+                  2. 스마트 매칭
+                </h3>
+                <p style={{ color: currentTheme.colors.text.secondary }}>
+                  정교한 알고리즘이 상호 프로필 분석 및 추천
+                </p>
+              </Card>
+            </FadeInElement>
             
-            <Card style={{ 
-              textAlign: 'center', 
-              padding: currentTheme.spacing[8],
-              backgroundColor: currentTheme.colors.surfaces.background
-            }}>
-              <div style={{ 
-                fontSize: '3rem', 
-                marginBottom: currentTheme.spacing[4],
-                color: currentTheme.colors.primary[500]
+            <FadeInElement delay={0.6} direction="up">
+              <Card style={{ 
+                textAlign: 'center', 
+                padding: currentTheme.spacing[8],
+                backgroundColor: currentTheme.colors.surfaces.background
               }}>
-                🤝
-              </div>
-              <h3 style={{
-                fontSize: currentTheme.typography.fontSize.lg,
-                fontWeight: currentTheme.typography.fontWeight.semibold,
-                marginBottom: currentTheme.spacing[2],
-                color: currentTheme.colors.text.primary
-              }}>
-                3. 즉시 면접
-              </h3>
-              <p style={{ color: currentTheme.colors.text.secondary }}>
-                매칭률 90% 이상 시 즉시 면접 일정 선택 가능
-              </p>
-            </Card>
+                <div style={{ 
+                  fontSize: '3rem', 
+                  marginBottom: currentTheme.spacing[4],
+                  color: currentTheme.colors.primary[500]
+                }}>
+                  🤝
+                </div>
+                <h3 style={{
+                  fontSize: currentTheme.typography.fontSize.lg,
+                  fontWeight: currentTheme.typography.fontWeight.semibold,
+                  marginBottom: currentTheme.spacing[2],
+                  color: currentTheme.colors.text.primary
+                }}>
+                  3. 즉시 면접
+                </h3>
+                <p style={{ color: currentTheme.colors.text.secondary }}>
+                  매칭률 90% 이상 시 즉시 면접 일정 선택 가능
+                </p>
+              </Card>
+            </FadeInElement>
           </Grid>
         </Container>
       </Section>
@@ -554,79 +579,86 @@ export const HomePage: React.FC = () => {
             marginBottom: currentTheme.spacing[16]
           }}>
             <Grid columns={getColumns(1, 1, 3)} gap="8">
-              <div style={{ 
-                textAlign: 'center',
-                padding: currentTheme.spacing[6],
-                backgroundColor: currentTheme.colors.surfaces.elevated,
-                borderRadius: currentTheme.borderRadius.lg
-              }}>
+              <FadeInElement delay={0.2} direction="up">
                 <div style={{ 
-                  fontSize: currentTheme.typography.fontSize['3xl'], 
-                  fontWeight: currentTheme.typography.fontWeight.bold,
-                  color: currentTheme.colors.primary[600],
-                  marginBottom: currentTheme.spacing[2]
+                  textAlign: 'center',
+                  padding: currentTheme.spacing[6],
+                  backgroundColor: currentTheme.colors.surfaces.elevated,
+                  borderRadius: currentTheme.borderRadius.lg
                 }}>
-                  14일
+                  <div style={{ 
+                    fontSize: currentTheme.typography.fontSize['3xl'], 
+                    fontWeight: currentTheme.typography.fontWeight.bold,
+                    color: currentTheme.colors.primary[600],
+                    marginBottom: currentTheme.spacing[2]
+                  }}>
+                    14일
+                  </div>
+                  <div style={{ 
+                    fontSize: currentTheme.typography.fontSize.sm, 
+                    color: currentTheme.colors.text.secondary
+                  }}>
+                    평균 채용 기간
+                  </div>
                 </div>
+              </FadeInElement>
+              <FadeInElement delay={0.4} direction="up">
                 <div style={{ 
-                  fontSize: currentTheme.typography.fontSize.sm, 
-                  color: currentTheme.colors.text.secondary
+                  textAlign: 'center',
+                  padding: currentTheme.spacing[6],
+                  backgroundColor: currentTheme.colors.surfaces.elevated,
+                  borderRadius: currentTheme.borderRadius.lg
                 }}>
-                  평균 채용 기간
+                  <div style={{ 
+                    fontSize: currentTheme.typography.fontSize['3xl'], 
+                    fontWeight: currentTheme.typography.fontWeight.bold,
+                    color: currentTheme.colors.semantic.success,
+                    marginBottom: currentTheme.spacing[2]
+                  }}>
+                    95%
+                  </div>
+                  <div style={{ 
+                    fontSize: currentTheme.typography.fontSize.sm, 
+                    color: currentTheme.colors.text.secondary
+                  }}>
+                    사용자 만족도
+                  </div>
                 </div>
-              </div>
-              <div style={{ 
-                textAlign: 'center',
-                padding: currentTheme.spacing[6],
-                backgroundColor: currentTheme.colors.surfaces.elevated,
-                borderRadius: currentTheme.borderRadius.lg
-              }}>
+              </FadeInElement>
+              <FadeInElement delay={0.6} direction="up">
                 <div style={{ 
-                  fontSize: currentTheme.typography.fontSize['3xl'], 
-                  fontWeight: currentTheme.typography.fontWeight.bold,
-                  color: currentTheme.colors.semantic.success,
-                  marginBottom: currentTheme.spacing[2]
+                  textAlign: 'center',
+                  padding: currentTheme.spacing[6],
+                  backgroundColor: currentTheme.colors.surfaces.elevated,
+                  borderRadius: currentTheme.borderRadius.lg
                 }}>
-                  95%
+                  <div style={{ 
+                    fontSize: currentTheme.typography.fontSize['3xl'], 
+                    fontWeight: currentTheme.typography.fontWeight.bold,
+                    color: currentTheme.colors.text.accent,
+                    marginBottom: currentTheme.spacing[2]
+                  }}>
+                    87%
+                  </div>
+                  <div style={{ 
+                    fontSize: currentTheme.typography.fontSize.sm, 
+                    color: currentTheme.colors.text.secondary
+                  }}>
+                    초기 정착률
+                  </div>
                 </div>
-                <div style={{ 
-                  fontSize: currentTheme.typography.fontSize.sm, 
-                  color: currentTheme.colors.text.secondary
-                }}>
-                  사용자 만족도
-                </div>
-              </div>
-              <div style={{ 
-                textAlign: 'center',
-                padding: currentTheme.spacing[6],
-                backgroundColor: currentTheme.colors.surfaces.elevated,
-                borderRadius: currentTheme.borderRadius.lg
-              }}>
-                <div style={{ 
-                  fontSize: currentTheme.typography.fontSize['3xl'], 
-                  fontWeight: currentTheme.typography.fontWeight.bold,
-                  color: currentTheme.colors.text.accent,
-                  marginBottom: currentTheme.spacing[2]
-                }}>
-                  87%
-                </div>
-                <div style={{ 
-                  fontSize: currentTheme.typography.fontSize.sm, 
-                  color: currentTheme.colors.text.secondary
-                }}>
-                  초기 정착률
-                </div>
-              </div>
+              </FadeInElement>
             </Grid>
           </div>
           
           {/* 리뷰 카드들 */}
           <Grid columns={getColumns(1, 1, 2)} gap="8">
-            <Card style={{ 
-              padding: currentTheme.spacing[8],
-              backgroundColor: currentTheme.colors.surfaces.elevated,
-              borderRadius: currentTheme.borderRadius.lg
-            }}>
+            <FadeInElement delay={0.2} direction="left">
+              <Card style={{ 
+                padding: currentTheme.spacing[8],
+                backgroundColor: currentTheme.colors.surfaces.elevated,
+                borderRadius: currentTheme.borderRadius.lg
+              }}>
               <div style={{ marginBottom: currentTheme.spacing[4] }}>
                 <div style={{ 
                   display: 'flex', 
@@ -687,208 +719,215 @@ export const HomePage: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </Card>
+              </Card>
+            </FadeInElement>
             
-            <Card style={{ 
-              padding: currentTheme.spacing[8],
-              backgroundColor: currentTheme.colors.surfaces.elevated,
-              borderRadius: currentTheme.borderRadius.lg
-            }}>
-              <div style={{ marginBottom: currentTheme.spacing[4] }}>
-                <div style={{ 
-                  display: 'flex', 
-                  gap: currentTheme.spacing[1], 
-                  marginBottom: currentTheme.spacing[3]
-                }}>
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <span key={i} style={{ 
-                      color: currentTheme.colors.primary[500], 
-                      fontSize: currentTheme.typography.fontSize.lg 
-                    }}>
-                      ⭐
-                    </span>
-                  ))}
-                </div>
-                <p style={{
-                  fontSize: currentTheme.typography.fontSize.base,
-                  color: currentTheme.colors.text.primary,
-                  lineHeight: 1.6,
-                  marginBottom: currentTheme.spacing[4]
-                }}>
-                  "복잡한 과정 없이 한국에서 꿈을 이룰 수 있었어요. Kgency는 정말 혁신적인 플랫폼입니다."
-                </p>
-              </div>
-              <div style={{ 
-                display: 'flex',
-                alignItems: 'center',
-                gap: currentTheme.spacing[3]
+            <FadeInElement delay={0.4} direction="right">
+              <Card style={{ 
+                padding: currentTheme.spacing[8],
+                backgroundColor: currentTheme.colors.surfaces.elevated,
+                borderRadius: currentTheme.borderRadius.lg
               }}>
-                <div style={{
-                  width: 48,
-                  height: 48,
-                  borderRadius: '50%',
-                  backgroundColor: currentTheme.colors.semantic.success + '20',
+                <div style={{ marginBottom: currentTheme.spacing[4] }}>
+                  <div style={{ 
+                    display: 'flex', 
+                    gap: currentTheme.spacing[1], 
+                    marginBottom: currentTheme.spacing[3]
+                  }}>
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <span key={i} style={{ 
+                        color: currentTheme.colors.primary[500], 
+                        fontSize: currentTheme.typography.fontSize.lg 
+                      }}>
+                        ⭐
+                      </span>
+                    ))}
+                  </div>
+                  <p style={{
+                    fontSize: currentTheme.typography.fontSize.base,
+                    color: currentTheme.colors.text.primary,
+                    lineHeight: 1.6,
+                    marginBottom: currentTheme.spacing[4]
+                  }}>
+                    "복잡한 과정 없이 한국에서 꿈을 이룰 수 있었어요. Kgency는 정말 혁신적인 플랫폼입니다."
+                  </p>
+                </div>
+                <div style={{ 
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: currentTheme.typography.fontSize.lg,
-                  fontWeight: currentTheme.typography.fontWeight.semibold,
-                  color: currentTheme.colors.semantic.success
+                  gap: currentTheme.spacing[3]
                 }}>
-                  S
-                </div>
-                <div>
                   <div style={{
-                    fontSize: currentTheme.typography.fontSize.base,
+                    width: 48,
+                    height: 48,
+                    borderRadius: '50%',
+                    backgroundColor: currentTheme.colors.semantic.success + '20',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: currentTheme.typography.fontSize.lg,
                     fontWeight: currentTheme.typography.fontWeight.semibold,
-                    color: currentTheme.colors.text.primary,
-                    marginBottom: currentTheme.spacing[1]
+                    color: currentTheme.colors.semantic.success
                   }}>
-                    Sarah Johnson
+                    S
                   </div>
-                  <div style={{
-                    fontSize: currentTheme.typography.fontSize.sm,
-                    color: currentTheme.colors.text.secondary
-                  }}>
-                    소프트웨어 개발자 • 핀란드 → 한국 취업 성공
-                  </div>
-                </div>
-              </div>
-            </Card>
-            
-            <Card style={{ 
-              padding: currentTheme.spacing[8],
-              backgroundColor: currentTheme.colors.surfaces.elevated,
-              borderRadius: currentTheme.borderRadius.lg
-            }}>
-              <div style={{ marginBottom: currentTheme.spacing[4] }}>
-                <div style={{ 
-                  display: 'flex', 
-                  gap: currentTheme.spacing[1], 
-                  marginBottom: currentTheme.spacing[3]
-                }}>
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <span key={i} style={{ 
-                      color: currentTheme.colors.primary[500], 
-                      fontSize: currentTheme.typography.fontSize.lg 
+                  <div>
+                    <div style={{
+                      fontSize: currentTheme.typography.fontSize.base,
+                      fontWeight: currentTheme.typography.fontWeight.semibold,
+                      color: currentTheme.colors.text.primary,
+                      marginBottom: currentTheme.spacing[1]
                     }}>
-                      ⭐
-                    </span>
-                  ))}
+                      Sarah Johnson
+                    </div>
+                    <div style={{
+                      fontSize: currentTheme.typography.fontSize.sm,
+                      color: currentTheme.colors.text.secondary
+                    }}>
+                      소프트웨어 개발자 • 핀란드 → 한국 취업 성공
+                    </div>
+                  </div>
                 </div>
-                <p style={{
-                  fontSize: currentTheme.typography.fontSize.base,
-                  color: currentTheme.colors.text.primary,
-                  lineHeight: 1.6,
-                  marginBottom: currentTheme.spacing[4]
-                }}>
-                  "전문적이고 빠른 매칭 서비스로 글로벌 인재를 효율적으로 채용할 수 있었습니다."
-                </p>
-              </div>
-              <div style={{ 
-                display: 'flex',
-                alignItems: 'center',
-                gap: currentTheme.spacing[3]
+              </Card>
+            </FadeInElement>
+            
+            <FadeInElement delay={0.6} direction="left">
+              <Card style={{ 
+                padding: currentTheme.spacing[8],
+                backgroundColor: currentTheme.colors.surfaces.elevated,
+                borderRadius: currentTheme.borderRadius.lg
               }}>
-                <div style={{
-                  width: 48,
-                  height: 48,
-                  borderRadius: '50%',
-                  backgroundColor: currentTheme.colors.text.accent + '20',
+                <div style={{ marginBottom: currentTheme.spacing[4] }}>
+                  <div style={{ 
+                    display: 'flex', 
+                    gap: currentTheme.spacing[1], 
+                    marginBottom: currentTheme.spacing[3]
+                  }}>
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <span key={i} style={{ 
+                        color: currentTheme.colors.primary[500], 
+                        fontSize: currentTheme.typography.fontSize.lg 
+                      }}>
+                        ⭐
+                      </span>
+                    ))}
+                  </div>
+                  <p style={{
+                    fontSize: currentTheme.typography.fontSize.base,
+                    color: currentTheme.colors.text.primary,
+                    lineHeight: 1.6,
+                    marginBottom: currentTheme.spacing[4]
+                  }}>
+                    "전문적이고 빠른 매칭 서비스로 글로벌 인재를 효율적으로 채용할 수 있었습니다."
+                  </p>
+                </div>
+                <div style={{ 
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: currentTheme.typography.fontSize.lg,
-                  fontWeight: currentTheme.typography.fontWeight.semibold,
-                  color: currentTheme.colors.text.accent
+                  gap: currentTheme.spacing[3]
                 }}>
-                  박
-                </div>
-                <div>
                   <div style={{
-                    fontSize: currentTheme.typography.fontSize.base,
+                    width: 48,
+                    height: 48,
+                    borderRadius: '50%',
+                    backgroundColor: currentTheme.colors.text.accent + '20',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: currentTheme.typography.fontSize.lg,
                     fontWeight: currentTheme.typography.fontWeight.semibold,
-                    color: currentTheme.colors.text.primary,
-                    marginBottom: currentTheme.spacing[1]
+                    color: currentTheme.colors.text.accent
                   }}>
-                    박지영
+                    박
                   </div>
-                  <div style={{
-                    fontSize: currentTheme.typography.fontSize.sm,
-                    color: currentTheme.colors.text.secondary
-                  }}>
-                    경영지원팀 이사 • 제조기업 B
-                  </div>
-                </div>
-              </div>
-            </Card>
-            
-            <Card style={{ 
-              padding: currentTheme.spacing[8],
-              backgroundColor: currentTheme.colors.surfaces.elevated,
-              borderRadius: currentTheme.borderRadius.lg
-            }}>
-              <div style={{ marginBottom: currentTheme.spacing[4] }}>
-                <div style={{ 
-                  display: 'flex', 
-                  gap: currentTheme.spacing[1], 
-                  marginBottom: currentTheme.spacing[3]
-                }}>
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <span key={i} style={{ 
-                      color: currentTheme.colors.primary[500], 
-                      fontSize: currentTheme.typography.fontSize.lg 
+                  <div>
+                    <div style={{
+                      fontSize: currentTheme.typography.fontSize.base,
+                      fontWeight: currentTheme.typography.fontWeight.semibold,
+                      color: currentTheme.colors.text.primary,
+                      marginBottom: currentTheme.spacing[1]
                     }}>
-                      ⭐
-                    </span>
-                  ))}
+                      박지영
+                    </div>
+                    <div style={{
+                      fontSize: currentTheme.typography.fontSize.sm,
+                      color: currentTheme.colors.text.secondary
+                    }}>
+                      경영지원팀 이사 • 제조기업 B
+                    </div>
+                  </div>
                 </div>
-                <p style={{
-                  fontSize: currentTheme.typography.fontSize.base,
-                  color: currentTheme.colors.text.primary,
-                  lineHeight: 1.6,
-                  marginBottom: currentTheme.spacing[4]
-                }}>
-                  "비자 준비부터 정착까지 원스톱 서비스로 안전하게 한국에서 커리어를 시작했습니다."
-                </p>
-              </div>
-              <div style={{ 
-                display: 'flex',
-                alignItems: 'center',
-                gap: currentTheme.spacing[3]
+              </Card>
+            </FadeInElement>
+            
+            <FadeInElement delay={0.8} direction="right">
+              <Card style={{ 
+                padding: currentTheme.spacing[8],
+                backgroundColor: currentTheme.colors.surfaces.elevated,
+                borderRadius: currentTheme.borderRadius.lg
               }}>
-                <div style={{
-                  width: 48,
-                  height: 48,
-                  borderRadius: '50%',
-                  backgroundColor: currentTheme.colors.primary[100],
+                <div style={{ marginBottom: currentTheme.spacing[4] }}>
+                  <div style={{ 
+                    display: 'flex', 
+                    gap: currentTheme.spacing[1], 
+                    marginBottom: currentTheme.spacing[3]
+                  }}>
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <span key={i} style={{ 
+                        color: currentTheme.colors.primary[500], 
+                        fontSize: currentTheme.typography.fontSize.lg 
+                      }}>
+                        ⭐
+                      </span>
+                    ))}
+                  </div>
+                  <p style={{
+                    fontSize: currentTheme.typography.fontSize.base,
+                    color: currentTheme.colors.text.primary,
+                    lineHeight: 1.6,
+                    marginBottom: currentTheme.spacing[4]
+                  }}>
+                    "비자 준비부터 정착까지 원스톱 서비스로 안전하게 한국에서 커리어를 시작했습니다."
+                  </p>
+                </div>
+                <div style={{ 
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: currentTheme.typography.fontSize.lg,
-                  fontWeight: currentTheme.typography.fontWeight.semibold,
-                  color: currentTheme.colors.primary[600]
+                  gap: currentTheme.spacing[3]
                 }}>
-                  N
-                </div>
-                <div>
                   <div style={{
-                    fontSize: currentTheme.typography.fontSize.base,
+                    width: 48,
+                    height: 48,
+                    borderRadius: '50%',
+                    backgroundColor: currentTheme.colors.primary[100],
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: currentTheme.typography.fontSize.lg,
                     fontWeight: currentTheme.typography.fontWeight.semibold,
-                    color: currentTheme.colors.text.primary,
-                    marginBottom: currentTheme.spacing[1]
+                    color: currentTheme.colors.primary[600]
                   }}>
-                    Nguyen Van An
+                    N
                   </div>
-                  <div style={{
-                    fontSize: currentTheme.typography.fontSize.sm,
-                    color: currentTheme.colors.text.secondary
-                  }}>
-                    기계 엔지니어 • 베트남 → 한국 취업 성공
+                  <div>
+                    <div style={{
+                      fontSize: currentTheme.typography.fontSize.base,
+                      fontWeight: currentTheme.typography.fontWeight.semibold,
+                      color: currentTheme.colors.text.primary,
+                      marginBottom: currentTheme.spacing[1]
+                    }}>
+                      Nguyen Van An
+                    </div>
+                    <div style={{
+                      fontSize: currentTheme.typography.fontSize.sm,
+                      color: currentTheme.colors.text.secondary
+                    }}>
+                      기계 엔지니어 • 베트남 → 한국 취업 성공
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </FadeInElement>
           </Grid>
         </Container>
       </Section>
