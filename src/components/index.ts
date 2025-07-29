@@ -15,6 +15,7 @@ export { Testimonial } from './Testimonial';
 export { CustomerTestimonials } from './CustomerTestimonials';
 export { TeamCard } from './TeamCard';
 export { ContactForm } from './ContactForm';
+export { FadeInElement } from './FadeInElement';
 
 export type { ButtonProps } from './Button';
 export type { CardProps } from './Card';

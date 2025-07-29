@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTheme } from '../theme/ThemeProvider';
 import { Button } from './Button';
 import { Badge } from './Badge';
+import { FadeInElement } from './FadeInElement';
 
 export interface HeroProps {
   badge?: {
@@ -35,11 +36,6 @@ export interface HeroProps {
   features?: Array<{
     icon: string;
     text: string;
-  }>;
-  notifications?: Array<{
-    id: string;
-    message: string;
-    type: 'success' | 'info';
   }>;
   backgroundImage?: string;
   backgroundOverlay?: boolean;
@@ -75,7 +71,6 @@ export const Hero: React.FC<HeroProps> = ({
   media,
   stats,
   features,
-  notifications,
   backgroundImage,
   backgroundOverlay = true,
   textAlign = 'center',
@@ -84,7 +79,6 @@ export const Hero: React.FC<HeroProps> = ({
   style
 }) => {
   const { currentTheme } = useTheme();
-  const [visibleNotifications, setVisibleNotifications] = useState<typeof notifications>([]);
   const [animatedStats, setAnimatedStats] = useState<{ [key: string]: number }>({});
   const windowWidth = useWindowWidth();
 
@@ -110,29 +104,6 @@ export const Hero: React.FC<HeroProps> = ({
     });
   }, [stats]);
 
-  // Notification system
-  useEffect(() => {
-    if (!notifications || notifications.length === 0) return;
-    
-    let notificationIndex = 0;
-    const showNotification = () => {
-      if (notificationIndex < notifications.length) {
-        const notification = notifications[notificationIndex];
-        setVisibleNotifications(prev => [notification, ...prev.slice(0, 2)]);
-        notificationIndex++;
-        
-        // Auto-hide after 4 seconds
-        setTimeout(() => {
-          setVisibleNotifications(prev => prev.filter(n => n.id !== notification.id));
-        }, 4000);
-      }
-    };
-    
-    showNotification(); // Show first immediately
-    const interval = setInterval(showNotification, 5000); // Show new ones every 5 seconds
-    
-    return () => clearInterval(interval);
-  }, [notifications]);
 
   // Animated background particles for interactive variant
   const particleElements = variant === 'interactive' ? Array.from({ length: 20 }, (_, i) => (
@@ -309,7 +280,7 @@ export const Hero: React.FC<HeroProps> = ({
     boxShadow: currentTheme.shadows.xl,
   };
 
-  const ActionButton: React.FC<{ action: any; variant: 'primary' | 'secondary' }> = ({ action, variant: btnVariant }) => {
+  const ActionButton: React.FC<{ action: { text: string; onClick?: () => void; href?: string }; variant: 'primary' | 'secondary' }> = ({ action, variant: btnVariant }) => {
     const props = {
       variant: btnVariant,
       size: 'lg' as const,
@@ -338,70 +309,80 @@ export const Hero: React.FC<HeroProps> = ({
       <div style={containerStyle}>
         <div style={contentStyle}>
           {badge && (
-            <div style={{ marginBottom: currentTheme.spacing[4] }}>
-              <Badge variant={badge.variant} size="md">
-                {badge.text}
-              </Badge>
-            </div>
+            <FadeInElement delay={0.1} direction="up">
+              <div style={{ marginBottom: currentTheme.spacing[4] }}>
+                <Badge variant={badge.variant} size="md">
+                  {badge.text}
+                </Badge>
+              </div>
+            </FadeInElement>
           )}
 
           {subtitle && (
-            <h2 style={{
-              fontSize: config.subtitleSize,
-              fontWeight: currentTheme.typography.fontWeight.medium,
-              color: subtitleColor,
-              fontFamily: currentTheme.typography.fontFamily.display,
-              margin: 0,
-              marginBottom: currentTheme.spacing[2],
-              lineHeight: currentTheme.typography.lineHeight.tight,
-              textShadow: backgroundImage ? '1px 1px 6px rgba(0, 0, 0, 0.7), 0 0 8px rgba(0, 0, 0, 0.3)' : 'none',
-            }}>
-              {subtitle}
-            </h2>
+            <FadeInElement delay={0.3} direction="up">
+              <h2 style={{
+                fontSize: config.subtitleSize,
+                fontWeight: currentTheme.typography.fontWeight.medium,
+                color: subtitleColor,
+                fontFamily: currentTheme.typography.fontFamily.display,
+                margin: 0,
+                marginBottom: currentTheme.spacing[2],
+                lineHeight: currentTheme.typography.lineHeight.tight,
+                textShadow: backgroundImage ? '1px 1px 6px rgba(0, 0, 0, 0.7), 0 0 8px rgba(0, 0, 0, 0.3)' : 'none',
+              }}>
+                {subtitle}
+              </h2>
+            </FadeInElement>
           )}
 
-          <h1 style={{
-            fontSize: config.titleSize,
-            fontWeight: currentTheme.typography.fontWeight.bold,
-            color: titleColor,
-            fontFamily: currentTheme.typography.fontFamily.display,
-            margin: 0,
-            marginBottom: description ? currentTheme.spacing[6] : currentTheme.spacing[8],
-            lineHeight: currentTheme.typography.lineHeight.tight,
-            letterSpacing: currentTheme.typography.letterSpacing.tight,
-            textShadow: backgroundImage ? '2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 0, 0, 0.3)' : 'none',
-          }}>
-            {title}
-          </h1>
+          <FadeInElement delay={0.5} direction="up">
+            <h1 style={{
+              fontSize: config.titleSize,
+              fontWeight: currentTheme.typography.fontWeight.bold,
+              color: titleColor,
+              fontFamily: currentTheme.typography.fontFamily.display,
+              margin: 0,
+              marginBottom: description ? currentTheme.spacing[6] : currentTheme.spacing[8],
+              lineHeight: currentTheme.typography.lineHeight.tight,
+              letterSpacing: currentTheme.typography.letterSpacing.tight,
+              textShadow: backgroundImage ? '2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 0, 0, 0.3)' : 'none',
+            }}>
+              {title}
+            </h1>
+          </FadeInElement>
 
           {description && (
-            <p style={{
-              fontSize: config.descriptionSize,
-              color: descriptionColor,
-              fontFamily: currentTheme.typography.fontFamily.primary,
-              lineHeight: currentTheme.typography.lineHeight.relaxed,
-              maxWidth: textAlign === 'center' ? '600px' : '100%',
-              margin: textAlign === 'center' ? `0 auto ${currentTheme.spacing[8]}` : `0 0 ${currentTheme.spacing[8]}`,
-              textShadow: backgroundImage ? '1px 1px 4px rgba(0, 0, 0, 0.6), 0 0 6px rgba(0, 0, 0, 0.3)' : 'none',
-            }}>
-              {description}
-            </p>
+            <FadeInElement delay={0.7} direction="up">
+              <p style={{
+                fontSize: config.descriptionSize,
+                color: descriptionColor,
+                fontFamily: currentTheme.typography.fontFamily.primary,
+                lineHeight: currentTheme.typography.lineHeight.relaxed,
+                maxWidth: textAlign === 'center' ? '600px' : '100%',
+                margin: textAlign === 'center' ? `0 auto ${currentTheme.spacing[8]}` : `0 0 ${currentTheme.spacing[8]}`,
+                textShadow: backgroundImage ? '1px 1px 4px rgba(0, 0, 0, 0.6), 0 0 6px rgba(0, 0, 0, 0.3)' : 'none',
+              }}>
+                {description}
+              </p>
+            </FadeInElement>
           )}
 
           {(primaryAction || secondaryAction) && (
-            <div style={{
-              display: 'flex',
-              gap: currentTheme.spacing[4],
-              justifyContent: textAlign === 'center' ? 'center' : textAlign === 'right' ? 'flex-end' : 'flex-start',
-              flexWrap: 'wrap',
-            }}>
-              {primaryAction && (
-                <ActionButton action={primaryAction} variant="primary" />
-              )}
-              {secondaryAction && (
-                <ActionButton action={secondaryAction} variant="secondary" />
-              )}
-            </div>
+            <FadeInElement delay={0.9} direction="up">
+              <div style={{
+                display: 'flex',
+                gap: currentTheme.spacing[4],
+                justifyContent: textAlign === 'center' ? 'center' : textAlign === 'right' ? 'flex-end' : 'flex-start',
+                flexWrap: 'wrap',
+              }}>
+                {primaryAction && (
+                  <ActionButton action={primaryAction} variant="primary" />
+                )}
+                {secondaryAction && (
+                  <ActionButton action={secondaryAction} variant="secondary" />
+                )}
+              </div>
+            </FadeInElement>
           )}
 
           {features && (
@@ -531,56 +512,7 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
       )}
       
-      {/* Real-time notifications */}
-      {visibleNotifications.length > 0 && (
-        <div style={{
-          position: 'absolute',
-          bottom: currentTheme.spacing[6],
-          right: currentTheme.spacing[6],
-          zIndex: 10,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: currentTheme.spacing[3],
-          maxWidth: '320px',
-        }}>
-          {visibleNotifications.map((notification) => (
-            <div
-              key={notification.id}
-              style={{
-                backgroundColor: currentTheme.colors.surfaces.elevated,
-                border: `1px solid ${
-                  notification.type === 'success' 
-                    ? currentTheme.colors.success[200] 
-                    : currentTheme.colors.info[200]
-                }`,
-                borderRadius: currentTheme.borderRadius.lg,
-                padding: currentTheme.spacing[4],
-                boxShadow: currentTheme.shadows.lg,
-                animation: 'slideInRight 0.3s ease-out',
-                display: 'flex',
-                alignItems: 'center',
-                gap: currentTheme.spacing[3],
-              }}
-            >
-              <div style={{
-                fontSize: '1.2em',
-                color: notification.type === 'success' 
-                  ? currentTheme.colors.success[500] 
-                  : currentTheme.colors.info[500],
-              }}>
-                {notification.type === 'success' ? '✅' : 'ℹ️'}
-              </div>
-              <div style={{
-                fontSize: currentTheme.typography.fontSize.sm,
-                color: currentTheme.colors.text.primary,
-                lineHeight: currentTheme.typography.lineHeight.normal,
-              }}>
-                {notification.message}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
+
       
       {/* CSS animations */}
       <style>{`
@@ -589,21 +521,6 @@ export const Hero: React.FC<HeroProps> = ({
           50% { transform: translateY(-20px) rotate(180deg); }
         }
         
-        @keyframes slideInRight {
-          from {
-            transform: translateX(100%);
-            opacity: 0;
-          }
-          to {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-        
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.5; }
-        }
       `}</style>
     </section>
   );

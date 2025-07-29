@@ -144,7 +144,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       newErrors.email = 'Invalid email address';
     }
 
-    if (fields.phone && formData.phone && !/^[\d\s\-\+\(\)]+$/.test(formData.phone)) {
+    if (fields.phone && formData.phone && !/^[\d\s\-+()]+$/.test(formData.phone)) {
       newErrors.phone = 'Invalid phone number';
     }
 

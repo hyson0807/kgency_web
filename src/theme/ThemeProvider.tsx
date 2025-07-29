@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, type ReactNode } from 'react';
+import React, { createContext, useContext, useMemo, useEffect, type ReactNode } from 'react';
 import { theme, darkTheme } from './theme';
 
 type ThemeMode = 'light' | 'dark';
@@ -22,21 +22,23 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     // 테마 전환 비활성화 - 다크모드 고정
   };
 
-  const currentTheme = mode === 'light' ? theme : {
-    ...theme,
-    colors: {
-      ...theme.colors,
-      surfaces: darkTheme.colors.surfaces,
-      text: darkTheme.colors.text,
-      border: darkTheme.colors.border,
-    }
-  };
+  const currentTheme = useMemo(() => {
+    return mode === 'light' ? theme : {
+      ...theme,
+      colors: {
+        ...theme.colors,
+        surfaces: darkTheme.colors.surfaces,
+        text: darkTheme.colors.text,
+        border: darkTheme.colors.border,
+      }
+    };
+  }, [mode]);
 
   // Apply theme to body
-  React.useEffect(() => {
+  useEffect(() => {
     document.body.style.backgroundColor = currentTheme.colors.surfaces.background;
     document.body.style.color = currentTheme.colors.text.primary;
-  }, [currentTheme, mode]);
+  }, [currentTheme]);
 
   return (
     <ThemeContext.Provider value={{ mode, toggleTheme, currentTheme }}>

@@ -1503,7 +1503,7 @@ export const HomePage: React.FC = () => {
       </Section>
 
       {/* Contact Form 섹션 */}
-      <Section spacing="xl" id="contact" style={{backgroundColor: currentTheme.colors.surfaces.foreground}}>
+      <Section spacing="xl" id="support" style={{backgroundColor: currentTheme.colors.surfaces.foreground}}>
         <Container maxWidth="md">
           <div style={{ 
             textAlign: 'center', 
