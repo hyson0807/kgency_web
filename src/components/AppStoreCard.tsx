@@ -6,6 +6,7 @@ import { Badge } from './Badge';
 export interface AppStoreCardProps extends React.HTMLAttributes<HTMLDivElement> {
   platform: 'ios' | 'android' | 'web';
   appName: string;
+  appIcon?: string;
   description?: string;
   rating?: {
     score: number;
@@ -24,6 +25,7 @@ export interface AppStoreCardProps extends React.HTMLAttributes<HTMLDivElement> 
 export const AppStoreCard: React.FC<AppStoreCardProps> = ({
   platform,
   appName,
+  appIcon,
   description,
   rating,
   badge,
@@ -162,7 +164,31 @@ export const AppStoreCard: React.FC<AppStoreCardProps> = ({
         onClick={handleClick}
         {...props}
       >
-        <div style={{ fontSize: config.iconSize }}>{platformInfo.icon}</div>
+        <div style={{ 
+          fontSize: config.iconSize,
+          width: config.iconSize,
+          height: config.iconSize,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden',
+          borderRadius: currentTheme.borderRadius.md,
+        }}>
+          {appIcon ? (
+            <img 
+              src={appIcon} 
+              alt={appName}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: currentTheme.borderRadius.md,
+              }}
+            />
+          ) : (
+            platformInfo.icon
+          )}
+        </div>
         <div>
           <div style={{
             fontSize: config.subtitleSize,
@@ -211,13 +237,27 @@ export const AppStoreCard: React.FC<AppStoreCardProps> = ({
           width: '80px',
           height: '80px',
           margin: `0 auto ${currentTheme.spacing[4]}`,
-          backgroundColor: platformInfo.background,
+          backgroundColor: appIcon ? 'transparent' : platformInfo.background,
           borderRadius: currentTheme.borderRadius.xl,
           transition: 'transform 0.2s ease',
           transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+          overflow: 'hidden',
         }}
       >
-        {platformInfo.icon}
+        {appIcon ? (
+          <img 
+            src={appIcon} 
+            alt={appName}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              borderRadius: currentTheme.borderRadius.xl,
+            }}
+          />
+        ) : (
+          platformInfo.icon
+        )}
       </div>
 
       {/* App Name */}

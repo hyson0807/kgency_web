@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import webHomeImage from '../assets/images/webHome.jpg';
+import kgencyLogo from '../assets/images/kgency_logo.png';
 import {
   Layout,
   Container,
@@ -10,7 +11,9 @@ import {
   Hero,
   FeatureCard,
   Card,
-  Testimonial,
+  CustomerTestimonials,
+  TeamCard,
+  AppStoreCard,
   Button,
   ContactForm,
   Footer,
@@ -95,202 +98,6 @@ export const HomePage: React.FC = () => {
         size="xl"
       />
 
-      {/* 개발자를 위한 섹션 */}
-      <Section spacing="md" style={{ 
-        backgroundColor: currentTheme.colors.surfaces.panel,
-        borderTop: `1px solid ${currentTheme.colors.border.primary}`,
-        borderBottom: `1px solid ${currentTheme.colors.border.primary}`
-      }}>
-        <Container maxWidth="xl">
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: currentTheme.spacing[4]
-          }}>
-            <div>
-              <h3 style={{
-                fontSize: currentTheme.typography.fontSize.lg,
-                fontWeight: currentTheme.typography.fontWeight.semibold,
-                color: currentTheme.colors.text.primary,
-                marginBottom: currentTheme.spacing[1]
-              }}>
-                🎨 개발자를 위한 컴포넌트 라이브러리
-              </h3>
-              <p style={{
-                color: currentTheme.colors.text.secondary,
-                fontSize: currentTheme.typography.fontSize.sm,
-                margin: 0
-              }}>
-                Linear 디자인 시스템 기반의 재사용 가능한 UI 컴포넌트를 확인해보세요
-              </p>
-            </div>
-            <div style={{ 
-              display: 'flex', 
-              gap: currentTheme.spacing[3],
-              alignItems: 'center'
-            }}>
-              <Button
-                variant="secondary"
-                size="md"
-                onClick={() => navigate('/components')}
-              >
-                🎨 컴포넌트 데모 보기
-              </Button>
-              <Button
-                variant="primary"
-                size="md"
-                onClick={() => {
-                  const heroExamplesWindow = window.open('', '_blank');
-                  if (heroExamplesWindow) {
-                    heroExamplesWindow.document.write(`
-                      <!DOCTYPE html>
-                      <html>
-                      <head>
-                        <title>Kgency Hero Examples</title>
-                        <style>
-                          body { margin: 0; font-family: Inter, system-ui, sans-serif; background: #f8fafc; }
-                          .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-                          .header { text-align: center; margin-bottom: 60px; }
-                          .title { font-size: 48px; font-weight: 700; margin-bottom: 16px; color: #1f2937; }
-                          .subtitle { font-size: 20px; color: #6b7280; margin-bottom: 32px; line-height: 1.6; }
-                          .section { margin-bottom: 60px; }
-                          .section-title { font-size: 28px; font-weight: 600; margin-bottom: 24px; color: #1f2937; display: flex; align-items: center; gap: 12px; }
-                          .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 32px; }
-                          .feature-card { background: white; padding: 24px; border-radius: 12px; border: 1px solid #e5e7eb; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-                          .feature-title { font-weight: 600; margin-bottom: 8px; color: #1f2937; }
-                          .feature-desc { color: #6b7280; font-size: 14px; line-height: 1.5; }
-                          .code-block { background: #1f2937; color: #e5e7eb; padding: 20px; border-radius: 8px; font-family: 'SF Mono', Monaco, monospace; font-size: 14px; overflow-x: auto; }
-                          .highlight { background: #dbeafe; padding: 20px; border-radius: 8px; border-left: 4px solid #3b82f6; margin: 24px 0; }
-                          .badge { display: inline-block; padding: 4px 12px; border-radius: 16px; font-size: 12px; font-weight: 500; }
-                          .badge-new { background: #dcfce7; color: #166534; }
-                          .badge-feature { background: #fef3c7; color: #92400e; }
-                        </style>
-                      </head>
-                      <body>
-                        <div class="container">
-                          <div class="header">
-                            <h1 class="title">🎨 Kgency Hero 컴포넌트</h1>
-                            <p class="subtitle">새로운 기능과 인터랙티브 요소가 추가된 차세대 Hero 컴포넌트</p>
-                            <div style="display: flex; justify-content: center; gap: 12px; margin-top: 24px;">
-                              <span class="badge badge-new">✨ 새로운 기능</span>
-                              <span class="badge badge-feature">🚀 인터랙티브</span>
-                            </div>
-                          </div>
-                          
-                          <div class="section">
-                            <h2 class="section-title">📊 새로운 주요 기능</h2>
-                            <div class="feature-grid">
-                              <div class="feature-card">
-                                <div class="feature-title">🔢 애니메이션 통계 카운터</div>
-                                <div class="feature-desc">숫자가 0부터 목표값까지 부드럽게 증가하는 애니메이션 효과</div>
-                              </div>
-                              <div class="feature-card">
-                                <div class="feature-title">🔔 실시간 알림 시스템</div>
-                                <div class="feature-desc">오른쪽 하단에 매칭/가입 알림이 실시간으로 표시</div>
-                              </div>
-                              <div class="feature-card">
-                                <div class="feature-title">✨ 인터랙티브 파티클</div>
-                                <div class="feature-desc">배경에 떠다니는 파티클 효과로 생동감 연출</div>
-                              </div>
-                              <div class="feature-card">
-                                <div class="feature-title">🏷️ 기능 태그</div>
-                                <div class="feature-desc">주요 기능을 아이콘과 함께 시각적으로 표시</div>
-                              </div>
-                              <div class="feature-card">
-                                <div class="feature-title">🎨 향상된 디자인</div>
-                                <div class="feature-desc">블러 효과와 그라디언트로 모던한 느낌</div>
-                              </div>
-                              <div class="feature-card">
-                                <div class="feature-title">📱 완전 반응형</div>
-                                <div class="feature-desc">모든 디바이스에서 완벽한 사용자 경험</div>
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <div class="section">
-                            <h2 class="section-title">🎯 4가지 Hero 스타일</h2>
-                            <div class="feature-grid">
-                              <div class="feature-card">
-                                <div class="feature-title">1. 그라디언트 히어로</div>
-                                <div class="feature-desc">아름다운 그라디언트 배경과 통계, 기능 태그 포함</div>
-                              </div>
-                              <div class="feature-card">
-                                <div class="feature-title">2. 인터랙티브 히어로</div>
-                                <div class="feature-desc">파티클 배경과 실시간 알림으로 생동감 연출</div>
-                              </div>
-                              <div class="feature-card">
-                                <div class="feature-title">3. 미디어 히어로</div>
-                                <div class="feature-desc">비디오나 이미지와 함께 표시되는 스타일</div>
-                              </div>
-                              <div class="feature-card">
-                                <div class="feature-title">4. 배경 이미지 히어로</div>
-                                <div class="feature-desc">풀스크린 배경 이미지와 오버레이 효과</div>
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <div class="section">
-                            <h2 class="section-title">💻 사용 방법</h2>
-                            <div class="highlight">
-                              <strong>📁 파일 위치:</strong> 
-                              <code>src/pages/home/KgencyHeroExample.tsx</code>
-                            </div>
-                            
-                            <div class="code-block">
-import { Hero } from '../../components/Hero';
-
-// 애니메이션 통계 예시
-const stats = [
-  { value: 1247, label: '성공적인 매칭', animate: true },
-  { value: '500+', label: '등록된 기업' },
-  { value: 12584, label: '활성 구직자', animate: true }
-];
-
-// 실시간 알림 예시
-const notifications = [
-  {
-    id: '1',
-    message: '방금 전 김민수님이 매칭에 성공했습니다!',
-    type: 'success'
-  }
-];
-
-<Hero
-  variant="interactive"
-  stats={stats}
-  notifications={notifications}
-  features={[
-    { icon: '⚡', text: '즉시 매칭' },
-    { icon: '🌍', text: '12개국어 지원' }
-  ]}
-  // ... 기타 props
-/>
-                            </div>
-                          </div>
-                          
-                          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 16px; text-align: center; color: white; margin-top: 60px;">
-                            <h3 style="margin-bottom: 16px; font-size: 24px;">🚀 지금 바로 사용해보세요!</h3>
-                            <p style="margin-bottom: 24px; opacity: 0.9;">Components 페이지에서 실제 동작하는 Hero 컴포넌트를 확인할 수 있습니다.</p>
-                            <div style="font-size: 14px; opacity: 0.8;">
-                              ✨ CLAUDE.md 가이드라인 준수 • 🎨 Linear 디자인 시스템 • 🔥 최신 React 기술
-                            </div>
-                          </div>
-                        </div>
-                      </body>
-                      </html>
-                    `);
-                    heroExamplesWindow.document.close();
-                  }
-                }}
-              >
-                🎨 Hero 예시 보기
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </Section>
 
       {/* 글로벌 인재 연결 허브 섹션 */}
       <Section spacing="xl" id="about" style={{ backgroundColor: currentTheme.colors.surfaces.background }}>
@@ -444,92 +251,92 @@ const notifications = [
             </div>
 
             {/* Statistics */}
-            <div style={{ marginTop: currentTheme.spacing[8] }}>
-              <Grid columns={4} gap="6">
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{
-                    fontSize: currentTheme.typography.fontSize['3xl'],
-                    fontWeight: currentTheme.typography.fontWeight.bold,
-                    color: currentTheme.colors.primary[600],
-                    marginBottom: currentTheme.spacing[2]
-                  }}>
-                    12
-                  </div>
-                  <div style={{
-                    fontSize: currentTheme.typography.fontSize.sm,
-                    color: currentTheme.colors.text.secondary
-                  }}>
-                    연결 국가
-                  </div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{
-                    fontSize: currentTheme.typography.fontSize['3xl'],
-                    fontWeight: currentTheme.typography.fontWeight.bold,
-                    color: currentTheme.colors.primary[600],
-                    marginBottom: currentTheme.spacing[2]
-                  }}>
-                    10K+
-                  </div>
-                  <div style={{
-                    fontSize: currentTheme.typography.fontSize.sm,
-                    color: currentTheme.colors.text.secondary
-                  }}>
-                    등록 인재
-                  </div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{
-                    fontSize: currentTheme.typography.fontSize['3xl'],
-                    fontWeight: currentTheme.typography.fontWeight.bold,
-                    color: currentTheme.colors.primary[600],
-                    marginBottom: currentTheme.spacing[2]
-                  }}>
-                    500+
-                  </div>
-                  <div style={{
-                    fontSize: currentTheme.typography.fontSize.sm,
-                    color: currentTheme.colors.text.secondary
-                  }}>
-                    파트너 기업
-                  </div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{
-                    fontSize: currentTheme.typography.fontSize['3xl'],
-                    fontWeight: currentTheme.typography.fontWeight.bold,
-                    color: currentTheme.colors.primary[600],
-                    marginBottom: currentTheme.spacing[2]
-                  }}>
-                    95%
-                  </div>
-                  <div style={{
-                    fontSize: currentTheme.typography.fontSize.sm,
-                    color: currentTheme.colors.text.secondary
-                  }}>
-                    매칭 성공률
-                  </div>
-                </div>
-              </Grid>
-            </div>
+            {/*<div style={{ marginTop: currentTheme.spacing[8] }}>*/}
+            {/*  <Grid columns={4} gap="6">*/}
+            {/*    <div style={{ textAlign: 'center' }}>*/}
+            {/*      <div style={{*/}
+            {/*        fontSize: currentTheme.typography.fontSize['3xl'],*/}
+            {/*        fontWeight: currentTheme.typography.fontWeight.bold,*/}
+            {/*        color: currentTheme.colors.primary[600],*/}
+            {/*        marginBottom: currentTheme.spacing[2]*/}
+            {/*      }}>*/}
+            {/*        12*/}
+            {/*      </div>*/}
+            {/*      <div style={{*/}
+            {/*        fontSize: currentTheme.typography.fontSize.sm,*/}
+            {/*        color: currentTheme.colors.text.secondary*/}
+            {/*      }}>*/}
+            {/*        연결 국가*/}
+            {/*      </div>*/}
+            {/*    </div>*/}
+            {/*    <div style={{ textAlign: 'center' }}>*/}
+            {/*      <div style={{*/}
+            {/*        fontSize: currentTheme.typography.fontSize['3xl'],*/}
+            {/*        fontWeight: currentTheme.typography.fontWeight.bold,*/}
+            {/*        color: currentTheme.colors.primary[600],*/}
+            {/*        marginBottom: currentTheme.spacing[2]*/}
+            {/*      }}>*/}
+            {/*        10K+*/}
+            {/*      </div>*/}
+            {/*      <div style={{*/}
+            {/*        fontSize: currentTheme.typography.fontSize.sm,*/}
+            {/*        color: currentTheme.colors.text.secondary*/}
+            {/*      }}>*/}
+            {/*        등록 인재*/}
+            {/*      </div>*/}
+            {/*    </div>*/}
+            {/*    <div style={{ textAlign: 'center' }}>*/}
+            {/*      <div style={{*/}
+            {/*        fontSize: currentTheme.typography.fontSize['3xl'],*/}
+            {/*        fontWeight: currentTheme.typography.fontWeight.bold,*/}
+            {/*        color: currentTheme.colors.primary[600],*/}
+            {/*        marginBottom: currentTheme.spacing[2]*/}
+            {/*      }}>*/}
+            {/*        500+*/}
+            {/*      </div>*/}
+            {/*      <div style={{*/}
+            {/*        fontSize: currentTheme.typography.fontSize.sm,*/}
+            {/*        color: currentTheme.colors.text.secondary*/}
+            {/*      }}>*/}
+            {/*        파트너 기업*/}
+            {/*      </div>*/}
+            {/*    </div>*/}
+            {/*    <div style={{ textAlign: 'center' }}>*/}
+            {/*      <div style={{*/}
+            {/*        fontSize: currentTheme.typography.fontSize['3xl'],*/}
+            {/*        fontWeight: currentTheme.typography.fontWeight.bold,*/}
+            {/*        color: currentTheme.colors.primary[600],*/}
+            {/*        marginBottom: currentTheme.spacing[2]*/}
+            {/*      }}>*/}
+            {/*        95%*/}
+            {/*      </div>*/}
+            {/*      <div style={{*/}
+            {/*        fontSize: currentTheme.typography.fontSize.sm,*/}
+            {/*        color: currentTheme.colors.text.secondary*/}
+            {/*      }}>*/}
+            {/*        매칭 성공률*/}
+            {/*      </div>*/}
+            {/*    </div>*/}
+            {/*  </Grid>*/}
+            {/*</div>*/}
 
             {/* Key Features */}
             <div style={{ marginTop: currentTheme.spacing[8] }}>
               <Grid columns={3} gap="6">
                 <FeatureCard
-                  icon="🌏"
+                  icon="01"
                   title="글로벌 네트워크"
                   description="12개국 우수 인재 풀에 직접 접근하여 최적의 매칭을 제공합니다."
                   variant="minimal"
                 />
                 <FeatureCard
-                  icon="⚡"
+                  icon="02"
                   title="실시간 연결"
                   description="AI 기반 매칭 시스템으로 즉시 최적의 인재와 기업을 연결합니다."
                   variant="minimal"
                 />
                 <FeatureCard
-                  icon="🤝"
+                  icon="03"
                   title="양방향 매칭"
                   description="기업과 인재가 상호 관심을 표현하면 바로 면접이 성사됩니다."
                   variant="minimal"
@@ -794,6 +601,58 @@ const notifications = [
       {/* 성공 사례 섹션 */}
       <Section spacing="xl" id="success-stories">
         <Container maxWidth="xl">
+          <CustomerTestimonials
+            testimonials={[
+              {
+                content: "Kgency 덕분에 짧은 시간에 원하는 인재를 찾았습니다. 양방향 매칭 시스템이 정말 효과적이었어요.",
+                author: {
+                  name: "김현수",
+                  role: "HR 팀장",
+                  company: "테크기업 A"
+                },
+                rating: 5
+              },
+              {
+                content: "복잡한 과정 없이 한국에서 꿈을 이룰 수 있었어요. Kgency는 정말 혁신적인 플랫폼입니다.",
+                author: {
+                  name: "Sarah Johnson",
+                  role: "소프트웨어 개발자",
+                  company: "핀란드 → 한국 취업 성공"
+                },
+                rating: 5
+              },
+              {
+                content: "전문적이고 빠른 매칭 서비스로 글로벌 인재를 효율적으로 채용할 수 있었습니다.",
+                author: {
+                  name: "박지영",
+                  role: "경영지원팀 이사",
+                  company: "제조기업 B"
+                },
+                rating: 5
+              },
+              {
+                content: "비자 준비부터 정착까지 원스톱 서비스로 안전하게 한국에서 커리어를 시작했습니다.",
+                author: {
+                  name: "Nguyen Van An",
+                  role: "기계 엔지니어",
+                  company: "베트남 → 한국 취업 성공"
+                },
+                rating: 5
+              }
+            ]}
+            stats={[
+              { value: "14일", label: "평균 채용 기간" },
+              { value: "95%", label: "사용자 만족도" },
+              { value: "87%", label: "초기 정착률" }
+            ]}
+            variant="carousel"
+          />
+        </Container>
+      </Section>
+
+      {/* 팀 소개 섹션 */}
+      <Section spacing="xl">
+        <Container maxWidth="xl">
           <div style={{ 
             textAlign: 'center', 
             marginBottom: currentTheme.spacing[16]
@@ -804,93 +663,102 @@ const notifications = [
               marginBottom: currentTheme.spacing[4],
               color: currentTheme.colors.text.primary
             }}>
-              성공 사례
+              Kgency 팀을 소개합니다
             </h2>
             <p style={{
               fontSize: currentTheme.typography.fontSize.lg,
               color: currentTheme.colors.text.secondary
             }}>
-              실제 매칭 성공 스토리
+              글로벌 인재 매칭의 전문가들이 함께합니다
             </p>
           </div>
           
-          <Grid columns={2} gap="8">
-            <Testimonial
-              content="Kgency 덕분에 짧은 시간에 원하는 인재를 찾았습니다. 양방향 매칭 시스템이 정말 효과적이었어요."
-              author={{
-                name: "김현수",
-                role: "HR 팀장",
-                company: "테크기업 A"
+          <Grid columns={3} gap="8">
+            <TeamCard
+              name="김민수"
+              role="CEO & 공동창업자"
+              bio="글로벌 HR 분야에서 15년 경력을 쌓으며, 외국인 인재 채용의 혁신을 이끌고 있습니다."
+              avatar="https://i.pravatar.cc/150?img=1"
+              social={{
+                linkedin: "https://linkedin.com/in/kimminsu",
+                email: "minsu.kim@kgency.com"
               }}
-              rating={5}
-              variant="featured"
+              variant="detailed"
             />
             
-            <Testimonial
-              content="복잡한 과정 없이 한국에서 꿈을 이룰 수 있었어요. Kgency는 정말 혁신적인 플랫폼입니다."
-              author={{
-                name: "Sarah Johnson",
-                role: "소프트웨어 개발자",
-                company: "핀란드 → 한국 취업 성공"
+            <TeamCard
+              name="이영희"
+              role="CTO & 기술총괄"
+              bio="AI 매칭 알고리즘과 플랫폼 개발을 담당하며, 기술 혁신을 통해 더 나은 매칭을 만들어가고 있습니다."
+              avatar="https://i.pravatar.cc/150?img=5"
+              social={{
+                linkedin: "https://linkedin.com/in/leeyounghee",
+                github: "https://github.com/younghee-lee"
               }}
-              rating={5}
-              variant="featured"
+              variant="detailed"
+            />
+            
+            <TeamCard
+              name="박준영"
+              role="Head of Global Relations"
+              bio="12개국 파트너십 구축과 글로벌 네트워크 확장을 이끌며, 국경을 넘나드는 인재 매칭을 실현합니다."
+              avatar="https://i.pravatar.cc/150?img=8"
+              social={{
+                linkedin: "https://linkedin.com/in/parkjunyoung",
+                twitter: "https://twitter.com/junyoung_park"
+              }}
+              variant="detailed"
             />
           </Grid>
           
-          {/* 수치로 보는 성과 */}
-          <div style={{ 
-            marginTop: currentTheme.spacing[16],
-            textAlign: 'center'
-          }}>
-            <Grid columns={3} gap="8">
-              <div>
-                <div style={{ 
-                  fontSize: currentTheme.typography.fontSize['3xl'],
-                  fontWeight: currentTheme.typography.fontWeight.bold,
-                  color: currentTheme.colors.text.accent,
-                  marginBottom: currentTheme.spacing[2]
-                }}>
-                  14일
-                </div>
-                <p style={{ color: currentTheme.colors.text.secondary }}>
-                  평균 채용 기간
-                </p>
-              </div>
+          {/* 추가 팀원 (컴팩트 버전) */}
+          <div style={{ marginTop: currentTheme.spacing[12] }}>
+            <Grid columns={4} gap="6">
+              <TeamCard
+                name="최서연"
+                role="Product Manager"
+                avatar="https://i.pravatar.cc/150?img=9"
+                variant="compact"
+                social={{
+                  linkedin: "https://linkedin.com/in/choiseoyeon"
+                }}
+              />
               
-              <div>
-                <div style={{ 
-                  fontSize: currentTheme.typography.fontSize['3xl'],
-                  fontWeight: currentTheme.typography.fontWeight.bold,
-                  color: currentTheme.colors.text.accent,
-                  marginBottom: currentTheme.spacing[2]
-                }}>
-                  95%
-                </div>
-                <p style={{ color: currentTheme.colors.text.secondary }}>
-                  사용자 만족도
-                </p>
-              </div>
+              <TeamCard
+                name="김태현"
+                role="UX Designer"
+                avatar="https://i.pravatar.cc/150?img=6"
+                variant="compact"
+                social={{
+                  linkedin: "https://linkedin.com/in/kimtaehyun"
+                }}
+              />
               
-              <div>
-                <div style={{ 
-                  fontSize: currentTheme.typography.fontSize['3xl'],
-                  fontWeight: currentTheme.typography.fontWeight.bold,
-                  color: currentTheme.colors.text.accent,
-                  marginBottom: currentTheme.spacing[2]
-                }}>
-                  87%
-                </div>
-                <p style={{ color: currentTheme.colors.text.secondary }}>
-                  초기 정착률
-                </p>
-              </div>
+              <TeamCard
+                name="장민정"
+                role="Marketing Director"
+                avatar="https://i.pravatar.cc/150?img=10"
+                variant="compact"
+                social={{
+                  linkedin: "https://linkedin.com/in/jangminjung"
+                }}
+              />
+              
+              <TeamCard
+                name="정수빈"
+                role="Customer Success"
+                avatar="https://i.pravatar.cc/150?img=3"
+                variant="compact"
+                social={{
+                  email: "subin.jung@kgency.com"
+                }}
+              />
             </Grid>
           </div>
         </Container>
       </Section>
 
-      {/* 신뢰성 구축 섹션 */}
+      {/* 앱 다운로드 섹션 */}
       <Section 
         spacing="xl" 
         style={{ backgroundColor: currentTheme.colors.surfaces.foreground }}
@@ -906,13 +774,204 @@ const notifications = [
               marginBottom: currentTheme.spacing[4],
               color: currentTheme.colors.text.primary
             }}>
-              신뢰할 수 있는 플랫폼
+              Kgency 앱으로 더 편리하게
             </h2>
             <p style={{
               fontSize: currentTheme.typography.fontSize.lg,
               color: currentTheme.colors.text.secondary
             }}>
-              검증된 파트너십과 보안 시스템
+              언제 어디서나 최적의 매칭 기회를 놓치지 마세요
+            </p>
+          </div>
+          
+          {/* 앱 카드 형태 */}
+          <div style={{ marginBottom: currentTheme.spacing[12] }}>
+            <Grid columns={3} gap="8">
+              <AppStoreCard
+                platform="ios"
+                appName="Kgency"
+                appIcon={kgencyLogo}
+                description="iPhone과 iPad에서 사용할 수 있는 네이티브 앱으로 최적화된 매칭 경험을 제공합니다."
+                rating={{ score: 4.8, count: "1.2K" }}
+                badge={{ text: "Editor's Choice", variant: "success" }}
+                downloadUrl="https://apps.apple.com/kgency"
+                variant="card"
+              />
+              
+              <AppStoreCard
+                platform="android"
+                appName="Kgency"
+                appIcon={kgencyLogo}
+                description="Android 기기에서 빠르고 안정적인 글로벌 인재 매칭 서비스를 경험하세요."
+                rating={{ score: 4.7, count: "2.5K" }}
+                badge={{ text: "Top Rated", variant: "primary" }}
+                downloadUrl="https://play.google.com/store/apps/kgency"
+                variant="card"
+              />
+              
+              <AppStoreCard
+                platform="web"
+                appName="Kgency Web"
+                appIcon={kgencyLogo}
+                description="웹 브라우저에서 바로 이용할 수 있는 반응형 웹 애플리케이션입니다."
+                rating={{ score: 4.9, count: "5.8K" }}
+                badge={{ text: "Most Popular", variant: "info" }}
+                downloadUrl="https://app.kgency.com"
+                variant="card"
+              />
+            </Grid>
+          </div>
+
+          {/* 다운로드 버튼 형태 */}
+          <div style={{ 
+            textAlign: 'center',
+            marginBottom: currentTheme.spacing[8]
+          }}>
+            <h3 style={{
+              fontSize: currentTheme.typography.fontSize.xl,
+              fontWeight: currentTheme.typography.fontWeight.semibold,
+              marginBottom: currentTheme.spacing[6],
+              color: currentTheme.colors.text.primary
+            }}>
+              지금 바로 다운로드
+            </h3>
+            
+            <div style={{ 
+              display: 'flex', 
+              gap: currentTheme.spacing[4], 
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+              alignItems: 'center'
+            }}>
+              <AppStoreCard
+                platform="ios"
+                appName="Kgency"
+                appIcon={kgencyLogo}
+                downloadUrl="https://apps.apple.com/kgency"
+                variant="button"
+                size="lg"
+              />
+              
+              <AppStoreCard
+                platform="android"
+                appName="Kgency"
+                appIcon={kgencyLogo}
+                downloadUrl="https://play.google.com/store/apps/kgency"
+                variant="button"
+                size="lg"
+              />
+              
+              <AppStoreCard
+                platform="web"
+                appName="Kgency Web"
+                appIcon={kgencyLogo}
+                downloadUrl="https://app.kgency.com"
+                variant="button"
+                size="lg"
+              />
+            </div>
+          </div>
+
+          {/* 앱 주요 기능 */}
+          <div style={{ 
+            backgroundColor: currentTheme.colors.surfaces.background,
+            borderRadius: currentTheme.borderRadius.xl,
+            padding: currentTheme.spacing[8],
+            marginTop: currentTheme.spacing[8]
+          }}>
+            <h4 style={{
+              fontSize: currentTheme.typography.fontSize.lg,
+              fontWeight: currentTheme.typography.fontWeight.semibold,
+              textAlign: 'center',
+              marginBottom: currentTheme.spacing[6],
+              color: currentTheme.colors.text.primary
+            }}>
+              📱 모바일 앱 주요 기능
+            </h4>
+            
+            <Grid columns={3} gap="6">
+              <FeatureCard
+                icon="🔔"
+                title="실시간 알림"
+                description="새로운 매칭과 면접 일정을 즉시 받아보세요"
+                variant="minimal"
+                size="sm"
+              />
+              
+              <FeatureCard
+                icon="💬"
+                title="인앱 채팅"
+                description="기업과 구직자 간 직접 소통이 가능합니다"
+                variant="minimal"
+                size="sm"
+              />
+              
+              <FeatureCard
+                icon="📊"
+                title="매칭 현황"
+                description="나의 매칭 상태와 진행 현황을 한눈에"
+                variant="minimal"
+                size="sm"
+              />
+            </Grid>
+          </div>
+        </Container>
+      </Section>
+
+      {/* 신뢰성 구축 섹션 */}
+      <Section 
+        spacing="xl" 
+        style={{ 
+          backgroundColor: currentTheme.colors.surfaces.foreground,
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+      >
+        {/* 미묘한 배경 패턴 */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: `radial-gradient(circle at 25% 25%, ${currentTheme.colors.primary[200]}10 0%, transparent 50%), radial-gradient(circle at 75% 75%, ${currentTheme.colors.primary[300]}08 0%, transparent 50%)`,
+          pointerEvents: 'none'
+        }} />
+        
+        <Container maxWidth="xl" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ 
+            textAlign: 'center', 
+            marginBottom: currentTheme.spacing[16]
+          }}>
+            <Badge 
+              variant="secondary" 
+              size="md" 
+              style={{ 
+                marginBottom: currentTheme.spacing[4],
+                backgroundColor: `${currentTheme.colors.primary[500]}15`,
+                color: currentTheme.colors.primary[600],
+                border: `1px solid ${currentTheme.colors.primary[200]}`
+              }}
+            >
+              신뢰할 수 있는 플랫폼
+            </Badge>
+            <h2 style={{
+              fontSize: currentTheme.typography.fontSize['3xl'],
+              fontWeight: currentTheme.typography.fontWeight.bold,
+              marginBottom: currentTheme.spacing[6],
+              color: currentTheme.colors.text.primary,
+              letterSpacing: '-0.02em'
+            }}>
+              검증된 보안과 신뢰성
+            </h2>
+            <p style={{
+              fontSize: currentTheme.typography.fontSize.lg,
+              color: currentTheme.colors.text.secondary,
+              maxWidth: '600px',
+              margin: '0 auto',
+              lineHeight: 1.6
+            }}>
+              정부기관 인증 및 국제 보안 표준을 준수하는 안전한 플랫폼
             </p>
           </div>
           
@@ -922,86 +981,279 @@ const notifications = [
             justifyContent: 'center',
             alignItems: 'center',
             gap: currentTheme.spacing[8],
-            marginBottom: currentTheme.spacing[12],
-            opacity: 0.7
+            marginBottom: currentTheme.spacing[16],
+            flexWrap: 'wrap'
           }}>
-            <Badge variant="secondary" size="lg">정부기관</Badge>
-            <Badge variant="secondary" size="lg">파트너기업</Badge>
-            <Badge variant="secondary" size="lg">외국인지원센터</Badge>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: currentTheme.spacing[2],
+              padding: `${currentTheme.spacing[2]} ${currentTheme.spacing[4]}`,
+              backgroundColor: currentTheme.colors.surfaces.background,
+              borderRadius: currentTheme.borderRadius.full,
+              fontSize: currentTheme.typography.fontSize.sm,
+              color: currentTheme.colors.text.secondary
+            }}>
+              <div style={{ width: 6, height: 6, backgroundColor: currentTheme.colors.primary[500], borderRadius: '50%' }} />
+              대한민국 고용노동부
+            </div>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: currentTheme.spacing[2],
+              padding: `${currentTheme.spacing[2]} ${currentTheme.spacing[4]}`,
+              backgroundColor: currentTheme.colors.surfaces.background,
+              borderRadius: currentTheme.borderRadius.full,
+              fontSize: currentTheme.typography.fontSize.sm,
+              color: currentTheme.colors.text.secondary
+            }}>
+              <div style={{ width: 6, height: 6, backgroundColor: currentTheme.colors.primary[400], borderRadius: '50%' }} />
+              글로벌 파트너 네트워크
+            </div>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: currentTheme.spacing[2],
+              padding: `${currentTheme.spacing[2]} ${currentTheme.spacing[4]}`,
+              backgroundColor: currentTheme.colors.surfaces.background,
+              borderRadius: currentTheme.borderRadius.full,
+              fontSize: currentTheme.typography.fontSize.sm,
+              color: currentTheme.colors.text.secondary
+            }}>
+              <div style={{ width: 6, height: 6, backgroundColor: currentTheme.colors.semantic.success, borderRadius: '50%' }} />
+              외국인 지원센터 협력
+            </div>
           </div>
           
-          {/* 인증 및 보안 */}
+          {/* 인증 및 보안 카드 */}
           <Grid columns={3} gap="8">
             <Card style={{ 
               textAlign: 'center', 
-              padding: currentTheme.spacing[6],
-              backgroundColor: currentTheme.colors.surfaces.background
+              padding: currentTheme.spacing[8],
+              backgroundColor: currentTheme.colors.surfaces.background,
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.elevated;
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = currentTheme.shadows.lg;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.background;
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = currentTheme.shadows.sm;
             }}>
-              <Badge variant="success" size="lg" style={{ marginBottom: currentTheme.spacing[4] }}>
-                ISMS 인증
-              </Badge>
+              <div style={{
+                width: 48,
+                height: 48,
+                margin: '0 auto',
+                marginBottom: currentTheme.spacing[4],
+                backgroundColor: `${currentTheme.colors.semantic.success}15`,
+                borderRadius: currentTheme.borderRadius.lg,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '20px'
+              }}>
+                🛡️
+              </div>
               <h3 style={{
                 fontSize: currentTheme.typography.fontSize.lg,
                 fontWeight: currentTheme.typography.fontWeight.semibold,
                 marginBottom: currentTheme.spacing[2],
                 color: currentTheme.colors.text.primary
               }}>
-                정보보호 관리체계
+                ISMS-P 인증
               </h3>
-              <p style={{ color: currentTheme.colors.text.secondary }}>
-                안전한 개인정보 보호
+              <p style={{
+                fontSize: currentTheme.typography.fontSize.sm,
+                color: currentTheme.colors.text.secondary,
+                lineHeight: 1.5
+              }}>
+                정보보호 및 개인정보보호 국가 인증 획득
               </p>
             </Card>
             
             <Card style={{ 
               textAlign: 'center', 
-              padding: currentTheme.spacing[6],
-              backgroundColor: currentTheme.colors.surfaces.background
+              padding: currentTheme.spacing[8],
+              backgroundColor: currentTheme.colors.surfaces.background,
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.elevated;
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = currentTheme.shadows.lg;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.background;
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = currentTheme.shadows.sm;
             }}>
-              <Badge variant="primary" size="lg" style={{ marginBottom: currentTheme.spacing[4] }}>
-                혁신기술 수상
-              </Badge>
+              <div style={{
+                width: 48,
+                height: 48,
+                margin: '0 auto',
+                marginBottom: currentTheme.spacing[4],
+                backgroundColor: `${currentTheme.colors.primary[500]}15`,
+                borderRadius: currentTheme.borderRadius.lg,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '20px'
+              }}>
+                🔐
+              </div>
               <h3 style={{
                 fontSize: currentTheme.typography.fontSize.lg,
                 fontWeight: currentTheme.typography.fontWeight.semibold,
                 marginBottom: currentTheme.spacing[2],
                 color: currentTheme.colors.text.primary
               }}>
-                기술력 인정
+                256bit SSL 암호화
               </h3>
-              <p style={{ color: currentTheme.colors.text.secondary }}>
-                AI 매칭 기술 우수성
+              <p style={{
+                fontSize: currentTheme.typography.fontSize.sm,
+                color: currentTheme.colors.text.secondary,
+                lineHeight: 1.5
+              }}>
+                금융권 수준의 데이터 암호화 적용
               </p>
             </Card>
             
             <Card style={{ 
               textAlign: 'center', 
-              padding: currentTheme.spacing[6],
-              backgroundColor: currentTheme.colors.surfaces.background
+              padding: currentTheme.spacing[8],
+              backgroundColor: currentTheme.colors.surfaces.background,
+              transition: 'all 0.3s ease',
+              cursor: 'pointer'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.elevated;
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = currentTheme.shadows.lg;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.background;
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = currentTheme.shadows.sm;
             }}>
-              <Badge variant="info" size="lg" style={{ marginBottom: currentTheme.spacing[4] }}>
-                GDPR 준수
-              </Badge>
+              <div style={{
+                width: 48,
+                height: 48,
+                margin: '0 auto',
+                marginBottom: currentTheme.spacing[4],
+                backgroundColor: `${currentTheme.colors.text.accent}15`,
+                borderRadius: currentTheme.borderRadius.lg,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '20px'
+              }}>
+                📊
+              </div>
               <h3 style={{
                 fontSize: currentTheme.typography.fontSize.lg,
                 fontWeight: currentTheme.typography.fontWeight.semibold,
                 marginBottom: currentTheme.spacing[2],
                 color: currentTheme.colors.text.primary
               }}>
-                글로벌 표준
+                24/7 실시간 모니터링
               </h3>
-              <p style={{ color: currentTheme.colors.text.secondary }}>
-                국제 개인정보보호 기준
+              <p style={{
+                fontSize: currentTheme.typography.fontSize.sm,
+                color: currentTheme.colors.text.secondary,
+                lineHeight: 1.5
+              }}>
+                AI 기반 이상 탐지 시스템 운영
               </p>
             </Card>
           </Grid>
+          
+          {/* 신뢰성 지표 */}
+          <div style={{
+            marginTop: currentTheme.spacing[16],
+            padding: currentTheme.spacing[6],
+            backgroundColor: currentTheme.colors.surfaces.background,
+            borderRadius: currentTheme.borderRadius.lg,
+            textAlign: 'center'
+          }}>
+            <Grid columns={4} gap="6">
+              <div>
+                <div style={{ 
+                  fontSize: currentTheme.typography.fontSize['2xl'], 
+                  fontWeight: currentTheme.typography.fontWeight.bold,
+                  color: currentTheme.colors.primary[600],
+                  marginBottom: currentTheme.spacing[1]
+                }}>
+                  99.9%
+                </div>
+                <div style={{ 
+                  fontSize: currentTheme.typography.fontSize.sm, 
+                  color: currentTheme.colors.text.secondary
+                }}>
+                  서비스 가동률
+                </div>
+              </div>
+              <div>
+                <div style={{ 
+                  fontSize: currentTheme.typography.fontSize['2xl'], 
+                  fontWeight: currentTheme.typography.fontWeight.bold,
+                  color: currentTheme.colors.semantic.success,
+                  marginBottom: currentTheme.spacing[1]
+                }}>
+                  0
+                </div>
+                <div style={{ 
+                  fontSize: currentTheme.typography.fontSize.sm, 
+                  color: currentTheme.colors.text.secondary
+                }}>
+                  보안 사고
+                </div>
+              </div>
+              <div>
+                <div style={{ 
+                  fontSize: currentTheme.typography.fontSize['2xl'], 
+                  fontWeight: currentTheme.typography.fontWeight.bold,
+                  color: currentTheme.colors.text.accent,
+                  marginBottom: currentTheme.spacing[1]
+                }}>
+                  100K+
+                </div>
+                <div style={{ 
+                  fontSize: currentTheme.typography.fontSize.sm, 
+                  color: currentTheme.colors.text.secondary
+                }}>
+                  보호된 데이터
+                </div>
+              </div>
+              <div>
+                <div style={{ 
+                  fontSize: currentTheme.typography.fontSize['2xl'], 
+                  fontWeight: currentTheme.typography.fontWeight.bold,
+                  color: currentTheme.colors.primary[600],
+                  marginBottom: currentTheme.spacing[1]
+                }}>
+                  A+
+                </div>
+                <div style={{ 
+                  fontSize: currentTheme.typography.fontSize.sm, 
+                  color: currentTheme.colors.text.secondary
+                }}>
+                  보안 등급
+                </div>
+              </div>
+            </Grid>
+          </div>
         </Container>
       </Section>
 
       {/* CTA 섹션 */}
       <Section 
         spacing="xl" 
-        style={{ backgroundColor: currentTheme.colors.text.accent }}
+        style={{ backgroundColor: currentTheme.colors.surfaces.background, }}
       >
         <Container maxWidth="xl">
           <div style={{ 
@@ -1056,7 +1308,7 @@ const notifications = [
       </Section>
 
       {/* Contact Form 섹션 */}
-      <Section spacing="xl" id="contact">
+      <Section spacing="xl" id="contact" style={{backgroundColor: currentTheme.colors.surfaces.foreground}}>
         <Container maxWidth="md">
           <div style={{ 
             textAlign: 'center', 

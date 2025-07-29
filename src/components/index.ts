@@ -12,6 +12,7 @@ export { Navbar } from './Navbar';
 export { Footer } from './Footer';
 export { Hero } from './Hero';
 export { Testimonial } from './Testimonial';
+export { CustomerTestimonials } from './CustomerTestimonials';
 export { TeamCard } from './TeamCard';
 export { ContactForm } from './ContactForm';
 
@@ -27,5 +28,6 @@ export type { NavbarProps, NavItem } from './Navbar';
 export type { FooterProps, FooterSection, FooterLink, SocialLink } from './Footer';
 export type { HeroProps } from './Hero';
 export type { TestimonialProps } from './Testimonial';
+export type { CustomerTestimonialsProps } from './CustomerTestimonials';
 export type { TeamMemberProps } from './TeamCard';
 export type { ContactFormProps, ContactFormData } from './ContactForm';
