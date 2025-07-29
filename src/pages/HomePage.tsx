@@ -165,18 +165,18 @@ export const HomePage: React.FC = () => {
 
               {/* Country Nodes */}
               {[
-                { flag: '🇻🇳', name: 'Vietnam', nameKr: '베트남', angle: 0, distance: 180 },
-                { flag: '🇹🇭', name: 'Thailand', nameKr: '태국', angle: 30, distance: 160 },
-                { flag: '🇮🇩', name: 'Indonesia', nameKr: '인도네시아', angle: 60, distance: 170 },
-                { flag: '🇵🇭', name: 'Philippines', nameKr: '필리핀', angle: 90, distance: 150 },
-                { flag: '🇲🇲', name: 'Myanmar', nameKr: '미얀마', angle: 120, distance: 165 },
-                { flag: '🇰🇭', name: 'Cambodia', nameKr: '캄보디아', angle: 150, distance: 155 },
-                { flag: '🇳🇵', name: 'Nepal', nameKr: '네팔', angle: 180, distance: 170 },
-                { flag: '🇧🇩', name: 'Bangladesh', nameKr: '방글라데시', angle: 210, distance: 160 },
-                { flag: '🇱🇰', name: 'Sri Lanka', nameKr: '스리랑카', angle: 240, distance: 175 },
-                { flag: '🇲🇳', name: 'Mongolia', nameKr: '몽골', angle: 270, distance: 165 },
-                { flag: '🇺🇿', name: 'Uzbekistan', nameKr: '우즈베키스탄', angle: 300, distance: 155 },
-                { flag: '🇰🇿', name: 'Kazakhstan', nameKr: '카자흐스탄', angle: 330, distance: 170 }
+                { flag: '🇻🇳', name: 'Vietnam', nameKr: '베트남', angle: 15, distance: 400 },
+                { flag: '🇹🇭', name: 'Thailand', nameKr: '태국', angle: 45, distance: 200 },
+                { flag: '🇮🇩', name: 'Indonesia', nameKr: '인도네시아', angle: 85, distance: 175 },
+                { flag: '🇵🇭', name: 'Philippines', nameKr: '필리핀', angle: 130, distance: 220 },
+                { flag: '🇲🇲', name: 'Myanmar', nameKr: '미얀마', angle: 160, distance: 320 },
+                { flag: '🇰🇭', name: 'Cambodia', nameKr: '캄보디아', angle: 175, distance: 420 },
+                { flag: '🇳🇵', name: 'Nepal', nameKr: '네팔', angle: 200, distance: 360 },
+                { flag: '🇧🇩', name: 'Bangladesh', nameKr: '방글라데시', angle: 220, distance: 250 },
+                { flag: '🇱🇰', name: 'Sri Lanka', nameKr: '스리랑카', angle: 250, distance: 180 },
+                { flag: '🇲🇳', name: 'Mongolia', nameKr: '몽골', angle: 295, distance: 200 },
+                { flag: '🇺🇿', name: 'Uzbekistan', nameKr: '우즈베키스탄', angle: 330, distance: 350 },
+                { flag: '🇰🇿', name: 'Kazakhstan', nameKr: '카자흐스탄', angle: 350, distance: 400 }
               ].map((country, index) => {
                 const radian = (country.angle * Math.PI) / 180;
                 const x = Math.cos(radian) * country.distance;
@@ -209,7 +209,7 @@ export const HomePage: React.FC = () => {
                         width: '80px',
                         height: '80px',
                         backgroundColor: currentTheme.colors.surfaces.background,
-                        border: `3px solid ${currentTheme.colors.primary[200]}`,
+                        border: `1px solid ${currentTheme.colors.primary[200]}`,
                         borderRadius: '50%',
                         display: 'flex',
                         flexDirection: 'column',
@@ -249,75 +249,6 @@ export const HomePage: React.FC = () => {
               ))}
             </div>
 
-            {/* Statistics */}
-            {/*<div style={{ marginTop: currentTheme.spacing[8] }}>*/}
-            {/*  <Grid columns={4} gap="6">*/}
-            {/*    <div style={{ textAlign: 'center' }}>*/}
-            {/*      <div style={{*/}
-            {/*        fontSize: currentTheme.typography.fontSize['3xl'],*/}
-            {/*        fontWeight: currentTheme.typography.fontWeight.bold,*/}
-            {/*        color: currentTheme.colors.primary[600],*/}
-            {/*        marginBottom: currentTheme.spacing[2]*/}
-            {/*      }}>*/}
-            {/*        12*/}
-            {/*      </div>*/}
-            {/*      <div style={{*/}
-            {/*        fontSize: currentTheme.typography.fontSize.sm,*/}
-            {/*        color: currentTheme.colors.text.secondary*/}
-            {/*      }}>*/}
-            {/*        연결 국가*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*    <div style={{ textAlign: 'center' }}>*/}
-            {/*      <div style={{*/}
-            {/*        fontSize: currentTheme.typography.fontSize['3xl'],*/}
-            {/*        fontWeight: currentTheme.typography.fontWeight.bold,*/}
-            {/*        color: currentTheme.colors.primary[600],*/}
-            {/*        marginBottom: currentTheme.spacing[2]*/}
-            {/*      }}>*/}
-            {/*        10K+*/}
-            {/*      </div>*/}
-            {/*      <div style={{*/}
-            {/*        fontSize: currentTheme.typography.fontSize.sm,*/}
-            {/*        color: currentTheme.colors.text.secondary*/}
-            {/*      }}>*/}
-            {/*        등록 인재*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*    <div style={{ textAlign: 'center' }}>*/}
-            {/*      <div style={{*/}
-            {/*        fontSize: currentTheme.typography.fontSize['3xl'],*/}
-            {/*        fontWeight: currentTheme.typography.fontWeight.bold,*/}
-            {/*        color: currentTheme.colors.primary[600],*/}
-            {/*        marginBottom: currentTheme.spacing[2]*/}
-            {/*      }}>*/}
-            {/*        500+*/}
-            {/*      </div>*/}
-            {/*      <div style={{*/}
-            {/*        fontSize: currentTheme.typography.fontSize.sm,*/}
-            {/*        color: currentTheme.colors.text.secondary*/}
-            {/*      }}>*/}
-            {/*        파트너 기업*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*    <div style={{ textAlign: 'center' }}>*/}
-            {/*      <div style={{*/}
-            {/*        fontSize: currentTheme.typography.fontSize['3xl'],*/}
-            {/*        fontWeight: currentTheme.typography.fontWeight.bold,*/}
-            {/*        color: currentTheme.colors.primary[600],*/}
-            {/*        marginBottom: currentTheme.spacing[2]*/}
-            {/*      }}>*/}
-            {/*        95%*/}
-            {/*      </div>*/}
-            {/*      <div style={{*/}
-            {/*        fontSize: currentTheme.typography.fontSize.sm,*/}
-            {/*        color: currentTheme.colors.text.secondary*/}
-            {/*      }}>*/}
-            {/*        매칭 성공률*/}
-            {/*      </div>*/}
-            {/*    </div>*/}
-            {/*  </Grid>*/}
-            {/*</div>*/}
 
             {/* Key Features */}
             <div style={{ marginTop: currentTheme.spacing[8] }}>
