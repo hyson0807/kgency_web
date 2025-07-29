@@ -1,5 +1,4 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import webHomeImage from '../assets/images/webHome.jpg';
 import kgencyLogo from '../assets/images/kgency_logo.png';
 import {
@@ -49,9 +48,32 @@ if (typeof document !== 'undefined') {
   document.head.appendChild(styleSheet);
 }
 
+// 반응형 훅
+const useWindowWidth = () => {
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowWidth;
+};
+
 export const HomePage: React.FC = () => {
   const { currentTheme } = useTheme();
-  const navigate = useNavigate();
+  const windowWidth = useWindowWidth();
+
+  // 반응형 columns 계산
+  const getColumns = (mobile: 1 | 2 | 3 | 4 | 6 | 12, tablet: 1 | 2 | 3 | 4 | 6 | 12, desktop: 1 | 2 | 3 | 4 | 6 | 12): 1 | 2 | 3 | 4 | 6 | 12 => {
+    if (windowWidth < 768) return mobile;
+    if (windowWidth < 1024) return tablet;
+    return desktop;
+  };
 
   return (
     <Layout>
@@ -65,15 +87,6 @@ export const HomePage: React.FC = () => {
           { label: '고객 리뷰', href: '#reviews' },
           { label: '고객지원', href: '#support' }
         ]}
-        actions={
-          <Button
-            variant="secondary"
-            size="sm"
-            onClick={() => navigate('/components')}
-          >
-            🎨 컴포넌트 데모
-          </Button>
-        }
         sticky={true}
       />
 
@@ -252,7 +265,7 @@ export const HomePage: React.FC = () => {
 
             {/* Key Features */}
             <div style={{ marginTop: currentTheme.spacing[8] }}>
-              <Grid columns={3} gap="6">
+              <Grid columns={getColumns(1, 1, 3)} gap="6">
                 <FeatureCard
                   icon="01"
                   title="글로벌 네트워크"
@@ -284,7 +297,7 @@ export const HomePage: React.FC = () => {
         style={{ backgroundColor: currentTheme.colors.surfaces.foreground }}
       >
         <Container maxWidth="xl">
-          <Grid columns={2} gap="12">
+          <Grid columns={getColumns(1, 2, 2)} gap="12">
             <div>
               <h2 style={{
                 fontSize: currentTheme.typography.fontSize['2xl'],
@@ -347,7 +360,7 @@ export const HomePage: React.FC = () => {
       {/* 구직자를 위한 서비스 */}
       <Section spacing="xl" id="jobseekers">
         <Container maxWidth="xl">
-          <Grid columns={2} gap="12">
+          <Grid columns={getColumns(1, 2, 2)} gap="12">
             <div style={{
               display: 'flex',
               alignItems: 'center',
@@ -434,7 +447,7 @@ export const HomePage: React.FC = () => {
             </p>
           </div>
           
-          <Grid columns={3} gap="8">
+          <Grid columns={getColumns(1, 1, 3)} gap="8">
             <Card style={{ 
               textAlign: 'center', 
               padding: currentTheme.spacing[8],
@@ -540,7 +553,7 @@ export const HomePage: React.FC = () => {
           <div style={{ 
             marginBottom: currentTheme.spacing[16]
           }}>
-            <Grid columns={3} gap="8">
+            <Grid columns={getColumns(1, 1, 3)} gap="8">
               <div style={{ 
                 textAlign: 'center',
                 padding: currentTheme.spacing[6],
@@ -608,7 +621,7 @@ export const HomePage: React.FC = () => {
           </div>
           
           {/* 리뷰 카드들 */}
-          <Grid columns={2} gap="8">
+          <Grid columns={getColumns(1, 1, 2)} gap="8">
             <Card style={{ 
               padding: currentTheme.spacing[8],
               backgroundColor: currentTheme.colors.surfaces.elevated,
@@ -903,7 +916,7 @@ export const HomePage: React.FC = () => {
             </p>
           </div>
           
-          <Grid columns={3} gap="8">
+          <Grid columns={getColumns(1, 2, 3)} gap="8">
             <TeamCard
               name="김민수"
               role="CEO & 공동창업자"
@@ -943,7 +956,7 @@ export const HomePage: React.FC = () => {
           
           {/* 추가 팀원 (컴팩트 버전) */}
           <div style={{ marginTop: currentTheme.spacing[12] }}>
-            <Grid columns={4} gap="6">
+            <Grid columns={getColumns(2, 4, 4)} gap="6">
               <TeamCard
                 name="최서연"
                 role="Product Manager"
@@ -1016,7 +1029,7 @@ export const HomePage: React.FC = () => {
           
           {/* 앱 카드 형태 */}
           <div style={{ marginBottom: currentTheme.spacing[12] }}>
-            <Grid columns={3} gap="8">
+            <Grid columns={getColumns(1, 1, 3)} gap="8">
               <AppStoreCard
                 platform="ios"
                 appName="Kgency"
@@ -1071,7 +1084,7 @@ export const HomePage: React.FC = () => {
               📱 모바일 앱 주요 기능
             </h4>
             
-            <Grid columns={3} gap="6">
+            <Grid columns={getColumns(1, 1, 3)} gap="6">
               <FeatureCard
                 icon="🔔"
                 title="실시간 알림"
@@ -1208,7 +1221,7 @@ export const HomePage: React.FC = () => {
           </div>
           
           {/* 인증 및 보안 카드 */}
-          <Grid columns={3} gap="8">
+          <Grid columns={getColumns(1, 1, 3)} gap="8">
             <Card style={{ 
               textAlign: 'center', 
               padding: currentTheme.spacing[8],
@@ -1362,7 +1375,7 @@ export const HomePage: React.FC = () => {
             borderRadius: currentTheme.borderRadius.lg,
             textAlign: 'center'
           }}>
-            <Grid columns={4} gap="6">
+            <Grid columns={getColumns(1, 2, 4)} gap="6">
               <div>
                 <div style={{ 
                   fontSize: currentTheme.typography.fontSize['2xl'], 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTheme } from '../theme/ThemeProvider';
 import { Badge } from './Badge';
 
@@ -23,6 +23,22 @@ export interface NavbarProps {
   style?: React.CSSProperties;
 }
 
+// 반응형 훅
+const useWindowWidth = () => {
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowWidth;
+};
+
 export const Navbar: React.FC<NavbarProps> = ({
   logo,
   // logoText = "Kgency",
@@ -34,6 +50,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const { currentTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const windowWidth = useWindowWidth();
+  
+  // 화면이 768px 이하일 때 모바일 모드
+  const isMobile = windowWidth < 768;
 
   const navbarStyle = {
     position: sticky ? 'sticky' as const : 'static' as const,
@@ -108,71 +128,75 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/*<span>{logoText}</span>*/}
           </div>
 
-          {/* Desktop Navigation */}
-          <ul style={navItemsStyle}>
-            {items.map((item, index) => (
-              <li key={index}>
-                <a
-                  href={item.href}
-                  onClick={item.onClick}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: currentTheme.spacing[2],
-                    padding: `${currentTheme.spacing[2]} ${currentTheme.spacing[4]}`,
-                    borderRadius: currentTheme.borderRadius.md,
-                    textDecoration: 'none',
-                    fontSize: currentTheme.typography.fontSize.sm,
-                    fontWeight: currentTheme.typography.fontWeight.medium,
-                    color: item.active 
-                      ? currentTheme.colors.text.accent 
-                      : currentTheme.colors.text.secondary,
-                    backgroundColor: item.active 
-                      ? currentTheme.colors.surfaces.panel 
-                      : 'transparent',
-                    transition: 'all 0.2s ease',
-                    cursor: 'pointer',
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!item.active) {
-                      e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.panel;
-                      e.currentTarget.style.color = currentTheme.colors.text.primary;
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!item.active) {
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                      e.currentTarget.style.color = currentTheme.colors.text.secondary;
-                    }
-                  }}
-                >
-                  {item.label}
-                  {item.badge && (
-                    <Badge variant={item.badge.variant} size="sm">
-                      {item.badge.text}
-                    </Badge>
-                  )}
-                </a>
-              </li>
-            ))}
-          </ul>
+          {/* Desktop Navigation - 모바일에서 숨김 */}
+          {!isMobile && (
+            <ul style={navItemsStyle}>
+              {items.map((item, index) => (
+                <li key={index}>
+                  <a
+                    href={item.href}
+                    onClick={item.onClick}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: currentTheme.spacing[2],
+                      padding: `${currentTheme.spacing[2]} ${currentTheme.spacing[4]}`,
+                      borderRadius: currentTheme.borderRadius.md,
+                      textDecoration: 'none',
+                      fontSize: currentTheme.typography.fontSize.sm,
+                      fontWeight: currentTheme.typography.fontWeight.medium,
+                      color: item.active 
+                        ? currentTheme.colors.text.accent 
+                        : currentTheme.colors.text.secondary,
+                      backgroundColor: item.active 
+                        ? currentTheme.colors.surfaces.panel 
+                        : 'transparent',
+                      transition: 'all 0.2s ease',
+                      cursor: 'pointer',
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!item.active) {
+                        e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.panel;
+                        e.currentTarget.style.color = currentTheme.colors.text.primary;
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!item.active) {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                        e.currentTarget.style.color = currentTheme.colors.text.secondary;
+                      }
+                    }}
+                  >
+                    {item.label}
+                    {item.badge && (
+                      <Badge variant={item.badge.variant} size="sm">
+                        {item.badge.text}
+                      </Badge>
+                    )}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
 
           {/* Actions */}
           <div style={actionsStyle}>
-            {actions}
+            {!isMobile && actions}
             
-            {/* Mobile Menu Button */}
-            <button
-              style={mobileMenuButtonStyle}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? '✕' : '☰'}
-            </button>
+            {/* Mobile Menu Button - 모바일에서만 표시 */}
+            {isMobile && (
+              <button
+                style={mobileMenuButtonStyle}
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                {mobileMenuOpen ? '✕' : '☰'}
+              </button>
+            )}
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
+        {/* Mobile Menu - 모바일에서만 표시 */}
+        {isMobile && mobileMenuOpen && (
           <div
             style={{
               backgroundColor: currentTheme.colors.surfaces.background,

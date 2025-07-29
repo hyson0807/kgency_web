@@ -49,6 +49,22 @@ export interface HeroProps {
   style?: React.CSSProperties;
 }
 
+// 반응형 훅
+const useWindowWidth = () => {
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowWidth;
+};
+
 export const Hero: React.FC<HeroProps> = ({
   badge,
   title,
@@ -70,6 +86,7 @@ export const Hero: React.FC<HeroProps> = ({
   const { currentTheme } = useTheme();
   const [visibleNotifications, setVisibleNotifications] = useState<typeof notifications>([]);
   const [animatedStats, setAnimatedStats] = useState<{ [key: string]: number }>({});
+  const windowWidth = useWindowWidth();
 
   // Animated counter for stats
   useEffect(() => {
@@ -225,12 +242,26 @@ export const Hero: React.FC<HeroProps> = ({
     zIndex: 2,
   } : {};
 
+  // 반응형 패딩 계산
+  const getResponsivePadding = () => {
+    if (windowWidth < 768) {
+      // 모바일: 좌우 패딩 더 크게
+      return `${config.padding} ${currentTheme.spacing[8]}`;
+    } else if (windowWidth < 1024) {
+      // 태블릿: 중간 패딩
+      return `${config.padding} ${currentTheme.spacing[6]}`;
+    } else {
+      // 데스크톱: 기본 패딩
+      return `${config.padding} ${currentTheme.spacing[6]}`;
+    }
+  };
+
   const containerStyle = {
     position: 'relative' as const,
     zIndex: 3,
     maxWidth: '1400px',
     margin: '0 auto',
-    padding: `${config.padding} ${currentTheme.spacing[6]}`,
+    padding: getResponsivePadding(),
     display: 'grid',
     gridTemplateColumns: media ? '1fr 1fr' : '1fr',
     gap: currentTheme.spacing[12],
@@ -238,10 +269,20 @@ export const Hero: React.FC<HeroProps> = ({
     minHeight: media ? 'auto' : '60vh',
   };
 
+  // 콘텐츠 영역에 추가 패딩 적용
+  const getContentPadding = () => {
+    if (windowWidth < 768) {
+      // 모바일: 텍스트 영역에 좌우 패딩 추가
+      return `0 ${currentTheme.spacing[4]}`;
+    }
+    return '0';
+  };
+
   const contentStyle = {
     textAlign: textAlign,
     maxWidth: textAlign === 'center' ? config.maxWidth : '100%',
     margin: textAlign === 'center' ? '0 auto' : '0',
+    padding: getContentPadding(),
   };
 
   // 배경 이미지에 가장 잘 대비되는 색상 옵션들:
