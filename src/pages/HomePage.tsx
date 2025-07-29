@@ -1069,38 +1069,44 @@ export const HomePage: React.FC = () => {
           {/* 앱 카드 형태 */}
           <div style={{ marginBottom: currentTheme.spacing[12] }}>
             <Grid columns={getColumns(1, 1, 3)} gap="8">
-              <AppStoreCard
-                platform="ios"
-                appName="Kgency"
-                appIcon={kgencyLogo}
-                description="iPhone과 iPad에서 사용할 수 있는 네이티브 앱으로 최적화된 매칭 경험을 제공합니다."
-                rating={{ score: 4.8, count: "1.2K" }}
-                badge={{ text: "Editor's Choice", variant: "success" }}
-                downloadUrl="https://apps.apple.com/kgency"
-                variant="card"
-              />
+              <FadeInElement delay={0.2} direction="up">
+                <AppStoreCard
+                  platform="ios"
+                  appName="Kgency"
+                  appIcon={kgencyLogo}
+                  description="iPhone과 iPad에서 사용할 수 있는 네이티브 앱으로 최적화된 매칭 경험을 제공합니다."
+                  rating={{ score: 4.8, count: "1.2K" }}
+                  badge={{ text: "Editor's Choice", variant: "success" }}
+                  downloadUrl="https://apps.apple.com/kgency"
+                  variant="card"
+                />
+              </FadeInElement>
               
-              <AppStoreCard
-                platform="android"
-                appName="Kgency"
-                appIcon={kgencyLogo}
-                description="Android 기기에서 빠르고 안정적인 글로벌 인재 매칭 서비스를 경험하세요."
-                rating={{ score: 4.7, count: "2.5K" }}
-                badge={{ text: "Top Rated", variant: "primary" }}
-                downloadUrl="https://play.google.com/store/apps/kgency"
-                variant="card"
-              />
+              <FadeInElement delay={0.4} direction="up">
+                <AppStoreCard
+                  platform="android"
+                  appName="Kgency"
+                  appIcon={kgencyLogo}
+                  description="Android 기기에서 빠르고 안정적인 글로벌 인재 매칭 서비스를 경험하세요."
+                  rating={{ score: 4.7, count: "2.5K" }}
+                  badge={{ text: "Top Rated", variant: "primary" }}
+                  downloadUrl="https://play.google.com/store/apps/kgency"
+                  variant="card"
+                />
+              </FadeInElement>
               
-              <AppStoreCard
-                platform="web"
-                appName="Kgency Web"
-                appIcon={kgencyLogo}
-                description="웹 브라우저에서 바로 이용할 수 있는 반응형 웹 애플리케이션입니다."
-                rating={{ score: 4.9, count: "5.8K" }}
-                badge={{ text: "Most Popular", variant: "info" }}
-                downloadUrl="https://app.kgency.com"
-                variant="card"
-              />
+              <FadeInElement delay={0.6} direction="up">
+                <AppStoreCard
+                  platform="web"
+                  appName="Kgency Web"
+                  appIcon={kgencyLogo}
+                  description="웹 브라우저에서 바로 이용할 수 있는 반응형 웹 애플리케이션입니다."
+                  rating={{ score: 4.9, count: "5.8K" }}
+                  badge={{ text: "Most Popular", variant: "info" }}
+                  downloadUrl="https://app.kgency.com"
+                  variant="card"
+                />
+              </FadeInElement>
             </Grid>
           </div>
 
