@@ -1183,36 +1183,42 @@ export const HomePage: React.FC = () => {
             textAlign: 'center', 
             marginBottom: currentTheme.spacing[16]
           }}>
-            <Badge 
-              variant="secondary" 
-              size="md" 
-              style={{ 
-                marginBottom: currentTheme.spacing[4],
-                backgroundColor: `${currentTheme.colors.primary[500]}15`,
-                color: currentTheme.colors.primary[600],
-                border: `1px solid ${currentTheme.colors.primary[200]}`
-              }}
-            >
-              신뢰할 수 있는 플랫폼
-            </Badge>
-            <h2 style={{
-              fontSize: currentTheme.typography.fontSize['3xl'],
-              fontWeight: currentTheme.typography.fontWeight.bold,
-              marginBottom: currentTheme.spacing[6],
-              color: currentTheme.colors.text.primary,
-              letterSpacing: '-0.02em'
-            }}>
-              검증된 보안과 신뢰성
-            </h2>
-            <p style={{
-              fontSize: currentTheme.typography.fontSize.lg,
-              color: currentTheme.colors.text.secondary,
-              maxWidth: '600px',
-              margin: '0 auto',
-              lineHeight: 1.6
-            }}>
-              정부기관 인증 및 국제 보안 표준을 준수하는 안전한 플랫폼
-            </p>
+            <FadeInElement delay={0.2} direction="up">
+              <Badge 
+                variant="secondary" 
+                size="md" 
+                style={{ 
+                  marginBottom: currentTheme.spacing[4],
+                  backgroundColor: `${currentTheme.colors.primary[500]}15`,
+                  color: currentTheme.colors.primary[600],
+                  border: `1px solid ${currentTheme.colors.primary[200]}`
+                }}
+              >
+                신뢰할 수 있는 플랫폼
+              </Badge>
+            </FadeInElement>
+            <FadeInElement delay={0.4} direction="up">
+              <h2 style={{
+                fontSize: currentTheme.typography.fontSize['3xl'],
+                fontWeight: currentTheme.typography.fontWeight.bold,
+                marginBottom: currentTheme.spacing[6],
+                color: currentTheme.colors.text.primary,
+                letterSpacing: '-0.02em'
+              }}>
+                검증된 보안과 신뢰성
+              </h2>
+            </FadeInElement>
+            <FadeInElement delay={0.6} direction="up">
+              <p style={{
+                fontSize: currentTheme.typography.fontSize.lg,
+                color: currentTheme.colors.text.secondary,
+                maxWidth: '600px',
+                margin: '0 auto',
+                lineHeight: 1.6
+              }}>
+                정부기관 인증 및 국제 보안 표준을 준수하는 안전한 플랫폼
+              </p>
+            </FadeInElement>
           </div>
           
           {/* 파트너십 표시 */}
@@ -1224,192 +1230,204 @@ export const HomePage: React.FC = () => {
             marginBottom: currentTheme.spacing[16],
             flexWrap: 'wrap'
           }}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: currentTheme.spacing[2],
-              padding: `${currentTheme.spacing[2]} ${currentTheme.spacing[4]}`,
-              backgroundColor: currentTheme.colors.surfaces.background,
-              borderRadius: currentTheme.borderRadius.full,
-              fontSize: currentTheme.typography.fontSize.sm,
-              color: currentTheme.colors.text.secondary
-            }}>
-              <div style={{ width: 6, height: 6, backgroundColor: currentTheme.colors.primary[500], borderRadius: '50%' }} />
-              대한민국 고용노동부
-            </div>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: currentTheme.spacing[2],
-              padding: `${currentTheme.spacing[2]} ${currentTheme.spacing[4]}`,
-              backgroundColor: currentTheme.colors.surfaces.background,
-              borderRadius: currentTheme.borderRadius.full,
-              fontSize: currentTheme.typography.fontSize.sm,
-              color: currentTheme.colors.text.secondary
-            }}>
-              <div style={{ width: 6, height: 6, backgroundColor: currentTheme.colors.primary[400], borderRadius: '50%' }} />
-              글로벌 파트너 네트워크
-            </div>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: currentTheme.spacing[2],
-              padding: `${currentTheme.spacing[2]} ${currentTheme.spacing[4]}`,
-              backgroundColor: currentTheme.colors.surfaces.background,
-              borderRadius: currentTheme.borderRadius.full,
-              fontSize: currentTheme.typography.fontSize.sm,
-              color: currentTheme.colors.text.secondary
-            }}>
-              <div style={{ width: 6, height: 6, backgroundColor: currentTheme.colors.semantic.success, borderRadius: '50%' }} />
-              외국인 지원센터 협력
-            </div>
+            <FadeInElement delay={0.2} direction="up">
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: currentTheme.spacing[2],
+                padding: `${currentTheme.spacing[2]} ${currentTheme.spacing[4]}`,
+                backgroundColor: currentTheme.colors.surfaces.background,
+                borderRadius: currentTheme.borderRadius.full,
+                fontSize: currentTheme.typography.fontSize.sm,
+                color: currentTheme.colors.text.secondary
+              }}>
+                <div style={{ width: 6, height: 6, backgroundColor: currentTheme.colors.primary[500], borderRadius: '50%' }} />
+                대한민국 고용노동부
+              </div>
+            </FadeInElement>
+            <FadeInElement delay={0.4} direction="up">
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: currentTheme.spacing[2],
+                padding: `${currentTheme.spacing[2]} ${currentTheme.spacing[4]}`,
+                backgroundColor: currentTheme.colors.surfaces.background,
+                borderRadius: currentTheme.borderRadius.full,
+                fontSize: currentTheme.typography.fontSize.sm,
+                color: currentTheme.colors.text.secondary
+              }}>
+                <div style={{ width: 6, height: 6, backgroundColor: currentTheme.colors.primary[400], borderRadius: '50%' }} />
+                글로벌 파트너 네트워크
+              </div>
+            </FadeInElement>
+            <FadeInElement delay={0.6} direction="up">
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: currentTheme.spacing[2],
+                padding: `${currentTheme.spacing[2]} ${currentTheme.spacing[4]}`,
+                backgroundColor: currentTheme.colors.surfaces.background,
+                borderRadius: currentTheme.borderRadius.full,
+                fontSize: currentTheme.typography.fontSize.sm,
+                color: currentTheme.colors.text.secondary
+              }}>
+                <div style={{ width: 6, height: 6, backgroundColor: currentTheme.colors.semantic.success, borderRadius: '50%' }} />
+                외국인 지원센터 협력
+              </div>
+            </FadeInElement>
           </div>
           
           {/* 인증 및 보안 카드 */}
           <Grid columns={getColumns(1, 1, 3)} gap="8">
-            <Card style={{ 
-              textAlign: 'center', 
-              padding: currentTheme.spacing[8],
-              backgroundColor: currentTheme.colors.surfaces.background,
-              transition: 'all 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.elevated;
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = currentTheme.shadows.lg;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.background;
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = currentTheme.shadows.sm;
-            }}>
-              <div style={{
-                width: 48,
-                height: 48,
-                margin: '0 auto',
-                marginBottom: currentTheme.spacing[4],
-                backgroundColor: `${currentTheme.colors.semantic.success}15`,
-                borderRadius: currentTheme.borderRadius.lg,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '20px'
+            <FadeInElement delay={0.2} direction="up">
+              <Card style={{ 
+                textAlign: 'center', 
+                padding: currentTheme.spacing[8],
+                backgroundColor: currentTheme.colors.surfaces.background,
+                transition: 'all 0.3s ease',
+                cursor: 'pointer'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.elevated;
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = currentTheme.shadows.lg;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.background;
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = currentTheme.shadows.sm;
               }}>
-                🛡️
-              </div>
-              <h3 style={{
-                fontSize: currentTheme.typography.fontSize.lg,
-                fontWeight: currentTheme.typography.fontWeight.semibold,
-                marginBottom: currentTheme.spacing[2],
-                color: currentTheme.colors.text.primary
-              }}>
-                ISMS-P 인증
-              </h3>
-              <p style={{
-                fontSize: currentTheme.typography.fontSize.sm,
-                color: currentTheme.colors.text.secondary,
-                lineHeight: 1.5
-              }}>
-                정보보호 및 개인정보보호 국가 인증 획득
-              </p>
-            </Card>
+                <div style={{
+                  width: 48,
+                  height: 48,
+                  margin: '0 auto',
+                  marginBottom: currentTheme.spacing[4],
+                  backgroundColor: `${currentTheme.colors.semantic.success}15`,
+                  borderRadius: currentTheme.borderRadius.lg,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '20px'
+                }}>
+                  🛡️
+                </div>
+                <h3 style={{
+                  fontSize: currentTheme.typography.fontSize.lg,
+                  fontWeight: currentTheme.typography.fontWeight.semibold,
+                  marginBottom: currentTheme.spacing[2],
+                  color: currentTheme.colors.text.primary
+                }}>
+                  ISMS-P 인증
+                </h3>
+                <p style={{
+                  fontSize: currentTheme.typography.fontSize.sm,
+                  color: currentTheme.colors.text.secondary,
+                  lineHeight: 1.5
+                }}>
+                  정보보호 및 개인정보보호 국가 인증 획득
+                </p>
+              </Card>
+            </FadeInElement>
             
-            <Card style={{ 
-              textAlign: 'center', 
-              padding: currentTheme.spacing[8],
-              backgroundColor: currentTheme.colors.surfaces.background,
-              transition: 'all 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.elevated;
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = currentTheme.shadows.lg;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.background;
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = currentTheme.shadows.sm;
-            }}>
-              <div style={{
-                width: 48,
-                height: 48,
-                margin: '0 auto',
-                marginBottom: currentTheme.spacing[4],
-                backgroundColor: `${currentTheme.colors.primary[500]}15`,
-                borderRadius: currentTheme.borderRadius.lg,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '20px'
+            <FadeInElement delay={0.4} direction="up">
+              <Card style={{ 
+                textAlign: 'center', 
+                padding: currentTheme.spacing[8],
+                backgroundColor: currentTheme.colors.surfaces.background,
+                transition: 'all 0.3s ease',
+                cursor: 'pointer'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.elevated;
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = currentTheme.shadows.lg;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.background;
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = currentTheme.shadows.sm;
               }}>
-                🔐
-              </div>
-              <h3 style={{
-                fontSize: currentTheme.typography.fontSize.lg,
-                fontWeight: currentTheme.typography.fontWeight.semibold,
-                marginBottom: currentTheme.spacing[2],
-                color: currentTheme.colors.text.primary
-              }}>
-                256bit SSL 암호화
-              </h3>
-              <p style={{
-                fontSize: currentTheme.typography.fontSize.sm,
-                color: currentTheme.colors.text.secondary,
-                lineHeight: 1.5
-              }}>
-                금융권 수준의 데이터 암호화 적용
-              </p>
-            </Card>
+                <div style={{
+                  width: 48,
+                  height: 48,
+                  margin: '0 auto',
+                  marginBottom: currentTheme.spacing[4],
+                  backgroundColor: `${currentTheme.colors.primary[500]}15`,
+                  borderRadius: currentTheme.borderRadius.lg,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '20px'
+                }}>
+                  🔐
+                </div>
+                <h3 style={{
+                  fontSize: currentTheme.typography.fontSize.lg,
+                  fontWeight: currentTheme.typography.fontWeight.semibold,
+                  marginBottom: currentTheme.spacing[2],
+                  color: currentTheme.colors.text.primary
+                }}>
+                  256bit SSL 암호화
+                </h3>
+                <p style={{
+                  fontSize: currentTheme.typography.fontSize.sm,
+                  color: currentTheme.colors.text.secondary,
+                  lineHeight: 1.5
+                }}>
+                  금융권 수준의 데이터 암호화 적용
+                </p>
+              </Card>
+            </FadeInElement>
             
-            <Card style={{ 
-              textAlign: 'center', 
-              padding: currentTheme.spacing[8],
-              backgroundColor: currentTheme.colors.surfaces.background,
-              transition: 'all 0.3s ease',
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.elevated;
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = currentTheme.shadows.lg;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.background;
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = currentTheme.shadows.sm;
-            }}>
-              <div style={{
-                width: 48,
-                height: 48,
-                margin: '0 auto',
-                marginBottom: currentTheme.spacing[4],
-                backgroundColor: `${currentTheme.colors.text.accent}15`,
-                borderRadius: currentTheme.borderRadius.lg,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '20px'
+            <FadeInElement delay={0.6} direction="up">
+              <Card style={{ 
+                textAlign: 'center', 
+                padding: currentTheme.spacing[8],
+                backgroundColor: currentTheme.colors.surfaces.background,
+                transition: 'all 0.3s ease',
+                cursor: 'pointer'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.elevated;
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = currentTheme.shadows.lg;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = currentTheme.colors.surfaces.background;
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = currentTheme.shadows.sm;
               }}>
-                📊
-              </div>
-              <h3 style={{
-                fontSize: currentTheme.typography.fontSize.lg,
-                fontWeight: currentTheme.typography.fontWeight.semibold,
-                marginBottom: currentTheme.spacing[2],
-                color: currentTheme.colors.text.primary
-              }}>
-                24/7 실시간 모니터링
-              </h3>
-              <p style={{
-                fontSize: currentTheme.typography.fontSize.sm,
-                color: currentTheme.colors.text.secondary,
-                lineHeight: 1.5
-              }}>
-                AI 기반 이상 탐지 시스템 운영
-              </p>
-            </Card>
+                <div style={{
+                  width: 48,
+                  height: 48,
+                  margin: '0 auto',
+                  marginBottom: currentTheme.spacing[4],
+                  backgroundColor: `${currentTheme.colors.text.accent}15`,
+                  borderRadius: currentTheme.borderRadius.lg,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '20px'
+                }}>
+                  📊
+                </div>
+                <h3 style={{
+                  fontSize: currentTheme.typography.fontSize.lg,
+                  fontWeight: currentTheme.typography.fontWeight.semibold,
+                  marginBottom: currentTheme.spacing[2],
+                  color: currentTheme.colors.text.primary
+                }}>
+                  24/7 실시간 모니터링
+                </h3>
+                <p style={{
+                  fontSize: currentTheme.typography.fontSize.sm,
+                  color: currentTheme.colors.text.secondary,
+                  lineHeight: 1.5
+                }}>
+                  AI 기반 이상 탐지 시스템 운영
+                </p>
+              </Card>
+            </FadeInElement>
           </Grid>
           
           {/* 신뢰성 지표 */}
@@ -1421,70 +1439,78 @@ export const HomePage: React.FC = () => {
             textAlign: 'center'
           }}>
             <Grid columns={getColumns(1, 2, 4)} gap="6">
-              <div>
-                <div style={{ 
-                  fontSize: currentTheme.typography.fontSize['2xl'], 
-                  fontWeight: currentTheme.typography.fontWeight.bold,
-                  color: currentTheme.colors.primary[600],
-                  marginBottom: currentTheme.spacing[1]
-                }}>
-                  99.9%
+              <FadeInElement delay={0.2} direction="up">
+                <div>
+                  <div style={{ 
+                    fontSize: currentTheme.typography.fontSize['2xl'], 
+                    fontWeight: currentTheme.typography.fontWeight.bold,
+                    color: currentTheme.colors.primary[600],
+                    marginBottom: currentTheme.spacing[1]
+                  }}>
+                    99.9%
+                  </div>
+                  <div style={{ 
+                    fontSize: currentTheme.typography.fontSize.sm, 
+                    color: currentTheme.colors.text.secondary
+                  }}>
+                    서비스 가동률
+                  </div>
                 </div>
-                <div style={{ 
-                  fontSize: currentTheme.typography.fontSize.sm, 
-                  color: currentTheme.colors.text.secondary
-                }}>
-                  서비스 가동률
+              </FadeInElement>
+              <FadeInElement delay={0.4} direction="up">
+                <div>
+                  <div style={{ 
+                    fontSize: currentTheme.typography.fontSize['2xl'], 
+                    fontWeight: currentTheme.typography.fontWeight.bold,
+                    color: currentTheme.colors.semantic.success,
+                    marginBottom: currentTheme.spacing[1]
+                  }}>
+                    0
+                  </div>
+                  <div style={{ 
+                    fontSize: currentTheme.typography.fontSize.sm, 
+                    color: currentTheme.colors.text.secondary
+                  }}>
+                    보안 사고
+                  </div>
                 </div>
-              </div>
-              <div>
-                <div style={{ 
-                  fontSize: currentTheme.typography.fontSize['2xl'], 
-                  fontWeight: currentTheme.typography.fontWeight.bold,
-                  color: currentTheme.colors.semantic.success,
-                  marginBottom: currentTheme.spacing[1]
-                }}>
-                  0
+              </FadeInElement>
+              <FadeInElement delay={0.6} direction="up">
+                <div>
+                  <div style={{ 
+                    fontSize: currentTheme.typography.fontSize['2xl'], 
+                    fontWeight: currentTheme.typography.fontWeight.bold,
+                    color: currentTheme.colors.text.accent,
+                    marginBottom: currentTheme.spacing[1]
+                  }}>
+                    100K+
+                  </div>
+                  <div style={{ 
+                    fontSize: currentTheme.typography.fontSize.sm, 
+                    color: currentTheme.colors.text.secondary
+                  }}>
+                    보호된 데이터
+                  </div>
                 </div>
-                <div style={{ 
-                  fontSize: currentTheme.typography.fontSize.sm, 
-                  color: currentTheme.colors.text.secondary
-                }}>
-                  보안 사고
+              </FadeInElement>
+              <FadeInElement delay={0.8} direction="up">
+                <div>
+                  <div style={{ 
+                    fontSize: currentTheme.typography.fontSize['2xl'], 
+                    fontWeight: currentTheme.typography.fontWeight.bold,
+                    color: currentTheme.colors.primary[600],
+                    marginBottom: currentTheme.spacing[1]
+                  }}>
+                    A+
+                  </div>
+                  <div style={{ 
+                    fontSize: currentTheme.typography.fontSize.sm, 
+                    color: currentTheme.colors.text.secondary
+                  }}>
+                    보안 등급
+                  </div>
                 </div>
-              </div>
-              <div>
-                <div style={{ 
-                  fontSize: currentTheme.typography.fontSize['2xl'], 
-                  fontWeight: currentTheme.typography.fontWeight.bold,
-                  color: currentTheme.colors.text.accent,
-                  marginBottom: currentTheme.spacing[1]
-                }}>
-                  100K+
-                </div>
-                <div style={{ 
-                  fontSize: currentTheme.typography.fontSize.sm, 
-                  color: currentTheme.colors.text.secondary
-                }}>
-                  보호된 데이터
-                </div>
-              </div>
-              <div>
-                <div style={{ 
-                  fontSize: currentTheme.typography.fontSize['2xl'], 
-                  fontWeight: currentTheme.typography.fontWeight.bold,
-                  color: currentTheme.colors.primary[600],
-                  marginBottom: currentTheme.spacing[1]
-                }}>
-                  A+
-                </div>
-                <div style={{ 
-                  fontSize: currentTheme.typography.fontSize.sm, 
-                  color: currentTheme.colors.text.secondary
-                }}>
-                  보안 등급
-                </div>
-              </div>
+              </FadeInElement>
             </Grid>
           </div>
         </Container>
