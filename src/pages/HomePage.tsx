@@ -1642,7 +1642,8 @@ export const HomePage: React.FC = () => {
             title: '법률',
             links: [
               { label: '이용약관', href: '/terms' },
-              { label: '개인정보처리방침', href: '/privacy' },
+              { label: '개인정보처리방침', href: '/privacy-policy' },
+              { label: '계정 삭제', href: '/account-deletion' },
               { label: '환불정책', href: '/refund' },
               { label: '사업자정보', href: '/business-info' }
             ]

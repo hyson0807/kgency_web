@@ -276,41 +276,6 @@ export const Footer: React.FC<FooterProps> = ({
           <div style={bottomTextStyle}>
             {bottomText || `© ${new Date().getFullYear()} ${logoText}. All rights reserved.`}
           </div>
-          
-          <div style={{ display: 'flex', gap: currentTheme.spacing[6] }}>
-            <a
-              href="#"
-              style={{
-                ...bottomTextStyle,
-                textDecoration: 'none',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = currentTheme.colors.text.secondary;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = currentTheme.colors.text.tertiary;
-              }}
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              style={{
-                ...bottomTextStyle,
-                textDecoration: 'none',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = currentTheme.colors.text.secondary;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = currentTheme.colors.text.tertiary;
-              }}
-            >
-              Terms of Service
-            </a>
-          </div>
         </div>
       </div>
     </footer>
